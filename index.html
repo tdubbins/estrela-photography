@@ -146,16 +146,19 @@
   }
 
   /* ─── HAMBURGER + MOBILE NAV ───────────────── */
-  /* Hamburger is hidden on desktop; revealed in the mobile media query. */
+  /* Hamburger is hidden on desktop; revealed in the mobile media query.
+     Fixed-positioned at top-right of viewport so it stays above the overlay
+     (z-index 200 > overlay's 150) and remains tappable even when the
+     hide-on-scroll nav has slid away. */
   .nav-toggle{
     display:none;
-    position:absolute;
-    top:50%;right:18px;transform:translateY(-50%);
-    width:40px;height:40px;
+    position:fixed;
+    top:max(14px, env(safe-area-inset-top));
+    right:14px;
+    width:44px;height:44px;
     background:none;border:none;
-    padding:8px;cursor:pointer;
-    pointer-events:auto;
-    z-index:160;
+    padding:10px;cursor:pointer;
+    z-index:200;
   }
   .nav-toggle span{
     display:block;height:2px;width:24px;
@@ -673,12 +676,13 @@
       <a href="#contact">Contact</a>
       <a href="gallery.html">Gallery</a>
     </div>
-
-    <!-- Hamburger toggle — mobile only -->
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
+
+  <!-- Hamburger toggle — mobile only. Lives outside <nav> so it stays
+       above the overlay (and above the hide-on-scroll nav) when open. -->
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
 
   <!-- Mobile menu overlay — mobile only -->
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
