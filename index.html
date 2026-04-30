@@ -146,6 +146,7 @@
     height:100dvh;            /* dynamic viewport — survives iOS Safari URL bar shrink */
     overflow:hidden;
     background:#2a2520;
+    touch-action:pan-y pinch-zoom;  /* let JS own horizontal swipes; native vertical scroll still works */
   }
   .hero-slide{
     position:absolute;inset:0;
@@ -848,13 +849,21 @@
     document.querySelector('.hero-arrow.prev').onclick = () => { go(current - 1); reset(); };
 
     // Swipe gestures on touch devices
-    let touchX = null;
-    hero.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
-    hero.addEventListener('touchend',   e => {
+    let touchX = null, touchY = null;
+    hero.addEventListener('touchstart', e => {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+    }, {passive:true});
+    hero.addEventListener('touchend', e => {
       if (touchX === null) return;
       const dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 40) { go(current + (dx > 0 ? -1 : 1)); reset(); }
-      touchX = null;
+      const dy = e.changedTouches[0].clientY - touchY;
+      // Only register as a swipe if it's clearly horizontal (dx dominates dy)
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        go(current + (dx > 0 ? -1 : 1));
+        reset();
+      }
+      touchX = touchY = null;
     });
 
     autoplay();
