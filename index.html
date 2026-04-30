@@ -164,37 +164,29 @@
 
   .hero-counter{
     position:absolute;
-    bottom:max(40px, calc(env(safe-area-inset-bottom) + 24px));
+    bottom:max(36px, calc(env(safe-area-inset-bottom) + 22px));
     left:50%;transform:translateX(-50%);
     color:#fff;
     font-family:'Italiana',serif;
-    letter-spacing:.35em;font-size:16px;
-    padding:10px 22px 10px 26px;
-    background:rgba(0,0,0,.28);
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.35);
-    border-radius:999px;
+    letter-spacing:.35em;font-size:13px;
+    padding-left:.35em;
+    text-shadow:0 1px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.35);
   }
 
   .hero-arrow{
     position:absolute;top:50%;transform:translateY(-50%);
-    color:#fff;font-size:32px;font-weight:300;line-height:1;
+    color:#fff;font-size:42px;font-weight:200;line-height:1;
     cursor:pointer;
-    width:56px;height:56px;
-    display:flex;align-items:center;justify-content:center;
-    background:rgba(0,0,0,.3);
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.4);
-    border-radius:50%;
-    opacity:.9;transition:opacity .3s,background .3s,transform .2s;
+    background:none;border:none;
+    padding:24px 22px;
+    opacity:.85;transition:opacity .25s, transform .15s;
     font-family:inherit;
+    text-shadow:0 1px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.35);
   }
-  .hero-arrow:hover{opacity:1;background:rgba(0,0,0,.5)}
-  .hero-arrow:active{transform:translateY(-50%) scale(.94)}
-  .hero-arrow.prev{left:28px}
-  .hero-arrow.next{right:28px}
+  .hero-arrow:hover{opacity:1}
+  .hero-arrow:active{transform:translateY(-50%) scale(.92)}
+  .hero-arrow.prev{left:6px}
+  .hero-arrow.next{right:6px}
   .hero-arrow span{display:block;margin-top:-4px}
 
   /* ─── SECTIONS ─────────────────────────────── */
