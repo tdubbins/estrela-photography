@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Estrela Photography — Family, Pregnancy & Portrait Photography by Esther</title>
 <meta name="description" content="Warm, authentic photography by Esther — family, pregnancy, portrait and personal branding sessions. Calm, unhurried, real.">
 <meta name="theme-color" content="#3d4a35">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="canonical" href="https://estrelaphotography.com/">
 
 <!-- TEMPORARY: hide site from search engines while content is still placeholder.
@@ -13,6 +16,7 @@
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!-- Open Graph (WhatsApp / Instagram / FB link previews) -->
 <meta property="og:type" content="website">
@@ -94,7 +98,9 @@
     grid-template-columns:1fr auto 1fr;
     align-items:center;
     pointer-events:none;
+    transition:transform .35s ease;
   }
+  nav.main.is-hidden{transform:translateY(-100%)}
   nav.main > *{pointer-events:auto}
 
   .nav-group{
@@ -135,7 +141,10 @@
 
   /* ─── HERO ─────────────────────────────────── */
   .hero{
-    position:relative;height:100vh;overflow:hidden;
+    position:relative;
+    height:100vh;
+    height:100dvh;            /* dynamic viewport — survives iOS Safari URL bar shrink */
+    overflow:hidden;
     background:#2a2520;
   }
   .hero-slide{
@@ -153,7 +162,9 @@
   }
 
   .hero-counter{
-    position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+    position:absolute;
+    bottom:max(40px, calc(env(safe-area-inset-bottom) + 24px));
+    left:50%;transform:translateX(-50%);
     color:#fff;
     font-family:'Italiana',serif;
     letter-spacing:.35em;font-size:16px;
@@ -534,10 +545,16 @@
   @media (max-width:900px){
     nav.main{
       grid-template-columns:1fr;justify-items:center;
-      padding:20px;gap:14px;
-      background:linear-gradient(to bottom,rgba(0,0,0,.3),transparent);
+      padding:14px 20px max(14px, env(safe-area-inset-bottom));
+      gap:8px;
+      background:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 60%,transparent 100%);
     }
-    .nav-group{gap:20px;font-size:11px;padding:0!important}
+    .nav-group{gap:8px;font-size:11px;padding:0!important}
+    /* Bigger tap targets — each nav link is ≥44 px tall */
+    .nav-group a{padding:12px 10px;display:inline-block}
+
+    /* Stronger text-shadow for logo over busy hero photos on small screens */
+    .logo{text-shadow:0 2px 24px rgba(0,0,0,.55)}
     .logo .script{font-size:34px}
     .logo .serif{font-size:15px}
     .logo .script-sm{font-size:15px}
@@ -550,7 +567,7 @@
     .offer-card{padding:40px 28px 32px}
     .offer-card .price{font-size:48px}
 
-    footer{padding:90px 22px 36px}
+    footer{padding:90px 22px max(36px, calc(env(safe-area-inset-bottom) + 20px))}
     footer .logo .script{font-size:40px}
     footer .logo .serif{font-size:17px}
     .footer-invite{font-size:26px;margin-top:32px}
@@ -805,6 +822,7 @@
   <script>
     const slides  = document.querySelectorAll('.hero-slide');
     const counter = document.getElementById('slideNum');
+    const hero    = document.querySelector('.hero');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let current = 0, timer;
 
@@ -828,7 +846,36 @@
 
     document.querySelector('.hero-arrow.next').onclick = () => { go(current + 1); reset(); };
     document.querySelector('.hero-arrow.prev').onclick = () => { go(current - 1); reset(); };
+
+    // Swipe gestures on touch devices
+    let touchX = null;
+    hero.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
+    hero.addEventListener('touchend',   e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) { go(current + (dx > 0 ? -1 : 1)); reset(); }
+      touchX = null;
+    });
+
     autoplay();
+
+    // Hide top nav on scroll-down (mobile only — on desktop the transparent nav is part of the hero look)
+    const nav = document.querySelector('nav.main');
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+    let lastY = 0, ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!isMobile()) { nav.classList.remove('is-hidden'); return; }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < 80)         nav.classList.remove('is-hidden');   // always visible near top
+        else if (y > lastY) nav.classList.add('is-hidden');      // scrolling down
+        else                nav.classList.remove('is-hidden');   // scrolling up
+        lastY = y;
+        ticking = false;
+      });
+    }, {passive:true});
   </script>
 </body>
 </html>
