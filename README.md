@@ -1,9 +1,8 @@
 # Estrela Photography
 
-The website for Esther — a photographer based in Germany. Family, pregnancy, portrait and personal-branding photography, with a per-client online gallery.
+The website for Esther — a photographer based in Lagos, Portugal. Her photography website, with a per-client online gallery.
 
 - **Staging:** [tdubbins.github.io/estrela-photography](https://tdubbins.github.io/estrela-photography/)
-- **Production:** **estrelaphotography.com** *(once domain is configured)*
 
 ## What's in this repo
 
