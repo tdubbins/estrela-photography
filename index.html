@@ -139,6 +139,73 @@
     font-size:18px;display:block;margin-top:-2px;opacity:.9;
   }
 
+  /* ─── HAMBURGER + MOBILE NAV ───────────────── */
+  /* Hamburger is hidden on desktop; revealed in the mobile media query. */
+  .nav-toggle{
+    display:none;
+    position:absolute;
+    top:50%;right:18px;transform:translateY(-50%);
+    width:40px;height:40px;
+    background:none;border:none;
+    padding:8px;cursor:pointer;
+    pointer-events:auto;
+    z-index:160;
+  }
+  .nav-toggle span{
+    display:block;height:2px;width:24px;
+    margin:5px auto;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .3s ease, opacity .2s ease, background .25s ease;
+    box-shadow:0 1px 6px rgba(0,0,0,.35);
+  }
+  .nav-toggle[aria-expanded="true"] span{background:var(--ink);box-shadow:none}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .mobile-nav{
+    position:fixed;inset:0;z-index:150;
+    background:var(--cream);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    padding:80px 24px max(40px, env(safe-area-inset-bottom));
+    opacity:0;visibility:hidden;
+    transform:translateY(-8px);
+    transition:opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+  }
+  .mobile-nav.open{
+    opacity:1;visibility:visible;transform:none;
+    transition:opacity .35s ease, transform .35s ease, visibility 0s;
+  }
+  .mobile-nav-mark{
+    font-family:'Parisienne',cursive;
+    font-size:38px;color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .mobile-nav ul{list-style:none;padding:0;margin:0;text-align:center}
+  .mobile-nav li{margin:0}
+  .mobile-nav a{
+    display:inline-block;
+    font-family:'Italiana',serif;
+    font-size:20px;letter-spacing:.32em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    padding:14px 22px 14px calc(22px + .32em);
+    transition:opacity .25s;
+  }
+  .mobile-nav a:hover{opacity:.55}
+  .mobile-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+  /* When the mobile menu is open, freeze the body */
+  body.menu-open{overflow:hidden}
+
+  /* Belt-and-braces hide on desktop */
+  @media (min-width:901px){
+    .mobile-nav,.nav-toggle{display:none !important}
+  }
+
   /* ─── HERO ─────────────────────────────────── */
   .hero{
     position:relative;
@@ -538,19 +605,19 @@
   @media (max-width:900px){
     nav.main{
       grid-template-columns:1fr;justify-items:center;
-      padding:14px 20px max(14px, env(safe-area-inset-bottom));
-      gap:8px;
-      background:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 60%,transparent 100%);
+      padding:18px 20px;
+      gap:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.1) 70%,transparent 100%);
     }
-    .nav-group{gap:8px;font-size:11px;padding:0!important}
-    /* Bigger tap targets — each nav link is ≥44 px tall */
-    .nav-group a{padding:12px 10px;display:inline-block}
+    /* Desktop link groups disappear; hamburger takes over */
+    .nav-group{display:none}
+    .nav-toggle{display:block}
 
-    /* Stronger text-shadow for logo over busy hero photos on small screens */
+    /* Logo stays centered, slightly smaller */
     .logo{text-shadow:0 2px 24px rgba(0,0,0,.55)}
-    .logo .script{font-size:34px}
-    .logo .serif{font-size:15px}
-    .logo .script-sm{font-size:15px}
+    .logo .script{font-size:30px}
+    .logo .serif{font-size:13px}
+    .logo .script-sm{font-size:14px}
 
     section{padding:80px 22px}
     .section-title{font-size:26px;letter-spacing:.24em}
@@ -600,7 +667,26 @@
       <a href="#contact">Contact</a>
       <a href="gallery.html">Gallery</a>
     </div>
+
+    <!-- Hamburger toggle — mobile only -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile menu overlay — mobile only -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav-mark">estrela</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#testimonials">Kind Words</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
 
   <!-- HERO SLIDESHOW ─────────────────────────── -->
   <h1 class="sr-only">Estrela Photography — family, pregnancy, portrait and personal branding photography by Esther</h1>
@@ -866,6 +952,7 @@
     let lastY = 0, ticking = false;
     window.addEventListener('scroll', () => {
       if (!isMobile()) { nav.classList.remove('is-hidden'); return; }
+      if (document.body.classList.contains('menu-open')) return;
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
@@ -877,6 +964,43 @@
         ticking = false;
       });
     }, {passive:true});
+
+    // ─── HAMBURGER / MOBILE NAV ───────────────────────
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    const openMenu = () => {
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Close menu');
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('menu-open');
+      nav.classList.remove('is-hidden');     // make sure nav is visible while menu is open
+    };
+    const closeMenu = () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+    };
+
+    navToggle.addEventListener('click', () => {
+      navToggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+    });
+
+    // Close when any link in the overlay is tapped
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
+
+    // Close if the viewport grows past the breakpoint while open
+    window.addEventListener('resize', () => {
+      if (!isMobile() && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
   </script>
 </body>
 </html>
