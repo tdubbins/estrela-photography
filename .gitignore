@@ -1,0 +1,11 @@
+# Local-only planning & briefing files — not part of the public website
+notes.md
+SPEC.md
+content-needed.md
+content-needed.pdf
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+*.swp

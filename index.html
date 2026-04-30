@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estrela Photography — Family, Pregnancy & Portrait Photography by Esther</title>
+<meta name="description" content="Warm, authentic photography by Esther — family, pregnancy, portrait and personal branding sessions. Calm, unhurried, real.">
+<meta name="theme-color" content="#3d4a35">
+<link rel="canonical" href="https://estrelaphotography.com/">
+
+<!-- Open Graph (WhatsApp / Instagram / FB link previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://estrelaphotography.com/">
+<meta property="og:title" content="Estrela Photography — by Esther">
+<meta property="og:description" content="Warm, authentic photography by Esther — family, pregnancy, portrait and personal branding sessions.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&q=80">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Estrela Photography — by Esther">
+<meta name="twitter:description" content="Warm, authentic photography by Esther.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&q=80">
+
+<!-- Preload first hero image so the page paints immediately -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=2400&q=80" fetchpriority="high">
+
+<!--
+  PROTOTYPE NOTE
+  ───────────────
+  All photos are Unsplash placeholders evoking warm, authentic photography
+  (families / pregnancy / portrait / branding). Replace with Esther's real photos.
+  Update the og:image and twitter:image URLs above when real photos are in.
+-->
+
+<!-- Bunny Fonts — drop-in, GDPR-friendly replacement for Google Fonts -->
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400|italiana:400|parisienne:400&display=swap" rel="stylesheet">
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://estrelaphotography.com/#business",
+  "name": "Estrela Photography",
+  "description": "Family, pregnancy, portrait and personal branding photography by Esther.",
+  "url": "https://estrelaphotography.com/",
+  "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&q=80",
+  "priceRange": "€€",
+  "areaServed": "Germany",
+  "founder": { "@type": "Person", "name": "Esther" },
+  "sameAs": [
+    "https://instagram.com/estrelaphotography"
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#3e4a3a;          /* deep moss / sage — primary text & accents */
+    --ink-soft:#78846e;     /* softer sage — secondary text */
+    --cream:#f6f1e8;        /* warm cream — main background */
+    --cream-warm:#ece4d5;   /* warmer beige — featured accent */
+    --sage-mist:#dfe6d5;    /* pale sage tint — section backgrounds */
+    --moss-deep:#3d4a35;    /* dark moss — footer & dramatic accents */
+    --moss-deep-soft:#6f7a65;/* softer moss on dark bg */
+    --ink-rgb:62,74,58;     /* rgb of --ink for rgba() */
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+  /* ─── NAV ──────────────────────────────────── */
+  nav.main{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:28px 56px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    pointer-events:none;
+  }
+  nav.main > *{pointer-events:auto}
+
+  .nav-group{
+    display:flex;gap:44px;
+    font-family:'Italiana',serif;
+    letter-spacing:.22em;
+    font-size:13px;
+    text-transform:uppercase;
+  }
+  .nav-group.left{justify-content:flex-end;padding-right:56px}
+  .nav-group.right{justify-content:flex-start;padding-left:56px}
+
+  .nav-group a{
+    color:#fff;text-decoration:none;
+    transition:opacity .3s;
+    text-shadow:0 1px 20px rgba(0,0,0,.25);
+  }
+  .nav-group a:hover{opacity:.7}
+
+  .logo{
+    text-align:center;color:#fff;line-height:.95;
+    text-decoration:none;
+    text-shadow:0 2px 24px rgba(0,0,0,.3);
+  }
+  .logo .script{
+    font-family:'Parisienne',cursive;
+    font-size:46px;display:block;margin-bottom:-4px;
+  }
+  .logo .serif{
+    font-family:'Italiana',serif;
+    font-size:20px;letter-spacing:.42em;
+    padding-left:.42em;display:block;
+  }
+  .logo .script-sm{
+    font-family:'Parisienne',cursive;
+    font-size:18px;display:block;margin-top:-2px;opacity:.9;
+  }
+
+  /* ─── HERO ─────────────────────────────────── */
+  .hero{
+    position:relative;height:100vh;overflow:hidden;
+    background:#2a2520;
+  }
+  .hero-slide{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    opacity:0;transition:opacity 1.6s ease-in-out;
+  }
+  .hero-slide.active{opacity:1}
+
+  .hero::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to bottom,
+      rgba(0,0,0,.3) 0%, transparent 22%,
+      transparent 78%, rgba(0,0,0,.25) 100%);
+  }
+
+  .hero-counter{
+    position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+    color:#fff;
+    font-family:'Italiana',serif;
+    letter-spacing:.35em;font-size:16px;
+    padding:10px 22px 10px 26px;
+    background:rgba(0,0,0,.28);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+  }
+
+  .hero-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    color:#fff;font-size:32px;font-weight:300;line-height:1;
+    cursor:pointer;
+    width:56px;height:56px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.3);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:50%;
+    opacity:.9;transition:opacity .3s,background .3s,transform .2s;
+    font-family:inherit;
+  }
+  .hero-arrow:hover{opacity:1;background:rgba(0,0,0,.5)}
+  .hero-arrow:active{transform:translateY(-50%) scale(.94)}
+  .hero-arrow.prev{left:28px}
+  .hero-arrow.next{right:28px}
+  .hero-arrow span{display:block;margin-top:-4px}
+
+  /* ─── SECTIONS ─────────────────────────────── */
+  section{padding:120px 48px}
+
+  .section-title{
+    font-family:'Italiana',serif;
+    font-size:40px;letter-spacing:.3em;
+    text-align:center;text-transform:uppercase;
+    font-weight:400;
+    padding-left:.3em;
+  }
+  .section-sub{
+    font-family:'Parisienne',cursive;
+    text-align:center;font-size:26px;
+    color:var(--ink-soft);
+    margin-top:4px;margin-bottom:72px;
+  }
+
+  /* ─── INTRO QUOTE ──────────────────────────── */
+  .intro{
+    text-align:center;
+    max-width:680px;margin:0 auto;
+    font-size:22px;font-style:italic;font-weight:300;
+    color:var(--ink-soft);line-height:1.8;
+    padding:110px 48px;
+  }
+  .intro .divider{
+    display:block;width:44px;height:1px;
+    background:var(--ink-soft);
+    margin:34px auto;opacity:.4;
+  }
+
+  /* ─── OFFERS / PRICING ─────────────────────── */
+  .offers-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+    max-width:1180px;margin:0 auto;
+  }
+  .offer-card{
+    position:relative;
+    background:#fdfbf6;
+    border:1px solid rgba(var(--ink-rgb),.12);
+    padding:48px 40px 40px;
+    display:flex;flex-direction:column;
+    text-align:center;
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .offer-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 60px -20px rgba(var(--ink-rgb),.22);
+  }
+  .offer-card.featured{
+    background:var(--cream-warm);
+    border-color:rgba(var(--ink-rgb),.2);
+  }
+  .offer-card .ribbon{
+    position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    font-family:'Parisienne',cursive;
+    color:var(--ink-soft);font-size:16px;
+  }
+  .offer-card .title{
+    font-family:'Italiana',serif;
+    letter-spacing:.32em;text-transform:uppercase;
+    font-size:19px;padding-left:.32em;
+    margin-top:8px;
+  }
+  .offer-card .subtitle{
+    font-family:'Parisienne',cursive;
+    font-size:22px;color:var(--ink-soft);
+    margin-top:2px;margin-bottom:28px;
+  }
+  .offer-card .price-label{
+    font-family:'Italiana',serif;
+    font-size:11px;letter-spacing:.35em;
+    text-transform:uppercase;color:var(--ink-soft);
+    padding-left:.35em;
+  }
+  .offer-card .price{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:58px;line-height:1;
+    margin:8px 0 4px;
+    color:var(--ink);
+  }
+  .offer-card .price .cur{font-size:32px;vertical-align:top;margin-right:2px}
+  .offer-card .duration{
+    font-family:'Parisienne',cursive;
+    font-size:18px;color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+  .offer-card .divider-line{
+    width:36px;height:1px;background:var(--ink-soft);
+    opacity:.3;margin:0 auto 28px;
+  }
+  .offer-card ul{
+    list-style:none;padding:0;margin:0 0 32px;
+    font-size:17px;line-height:1.9;
+    color:var(--ink);
+  }
+  .offer-card ul li{font-weight:300}
+  .offer-card .cta{
+    display:inline-block;
+    margin:0 auto;
+    font-family:'Italiana',serif;
+    text-transform:uppercase;
+    letter-spacing:.3em;padding-left:.3em;
+    font-size:12px;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid var(--ink);
+    padding:14px 32px 14px calc(32px + .3em);
+    transition:background .3s, color .3s;
+  }
+  .offer-card .cta:hover{background:var(--ink);color:var(--cream)}
+  .offers-note{
+    text-align:center;
+    margin-top:56px;
+    font-style:italic;color:var(--ink-soft);
+    font-size:17px;
+  }
+
+  /* ─── ABOUT ─────────────────────────────────── */
+  #about{background:var(--cream-warm)}
+  .about{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:80px;align-items:center;
+    max-width:1150px;margin:0 auto;
+  }
+  .about-image{
+    aspect-ratio:4/5;
+    background-size:cover;background-position:center;
+  }
+  .about-text h2{
+    font-family:'Italiana',serif;
+    font-size:34px;letter-spacing:.28em;
+    text-transform:uppercase;font-weight:400;
+    margin-bottom:4px;padding-left:.28em;
+  }
+  .about-text .sub{
+    font-family:'Parisienne',cursive;
+    font-size:30px;color:var(--ink-soft);
+    margin-bottom:32px;
+  }
+  .about-text p{
+    font-size:19px;line-height:1.85;
+    margin-bottom:18px;font-weight:300;
+  }
+  .about-text .signature{
+    font-family:'Parisienne',cursive;
+    font-size:32px;margin-top:28px;
+  }
+
+  /* ─── WORK ──────────────────────────────────── */
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:240px;
+    gap:6px;
+    max-width:1500px;margin:0 auto;
+  }
+  .work-grid .cell{
+    position:relative;
+    overflow:hidden;
+    transition:opacity .4s;
+  }
+  .work-grid .cell:hover{opacity:.85}
+  .work-grid .cell.tall{grid-row:span 2}
+  .work-grid .cell.wide{grid-column:span 2}
+  .work-grid .cell img{
+    width:100%;height:100%;
+    object-fit:cover;display:block;
+  }
+
+  /* ─── TESTIMONIALS ──────────────────────────── */
+  #testimonials{background:var(--sage-mist)}
+  .testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:56px;
+    max-width:1200px;margin:0 auto;
+  }
+  .testimonial{
+    position:relative;
+    text-align:center;
+    padding:32px 16px 8px;
+  }
+  .testimonial::before{
+    content:'“';
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:96px;line-height:.6;
+    color:var(--ink);opacity:.18;
+    margin-bottom:12px;
+  }
+  .testimonial blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:300;
+    font-size:20px;line-height:1.7;
+    color:var(--ink);
+    margin-bottom:28px;
+  }
+  .testimonial .divider-sm{
+    width:28px;height:1px;
+    background:var(--ink-soft);opacity:.4;
+    margin:0 auto 18px;
+  }
+  .testimonial .name{
+    font-family:'Parisienne',cursive;
+    font-size:24px;color:var(--ink);
+    margin-bottom:4px;
+  }
+  .testimonial .meta{
+    font-family:'Italiana',serif;
+    font-size:11px;letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding-left:.35em;
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer{
+    background:var(--moss-deep);
+    color:var(--cream);
+    padding:130px 48px 48px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  footer::before{
+    content:'';
+    position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:80px;height:1px;background:var(--cream);opacity:.35;
+  }
+  footer .logo{
+    color:var(--cream);text-shadow:none;
+    display:inline-block;
+  }
+  footer .logo .script{color:var(--cream);font-size:54px}
+  footer .logo .serif{color:var(--cream);font-size:22px;opacity:.9}
+  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:20px}
+
+  .footer-invite{
+    font-family:'Parisienne',cursive;
+    font-size:34px;
+    margin-top:48px;
+    color:var(--cream);
+  }
+  .footer-text{
+    max-width:520px;margin:22px auto 0;
+    font-size:19px;font-style:italic;
+    line-height:1.8;font-weight:300;
+    color:var(--cream);opacity:.85;
+  }
+
+  .footer-contacts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    max-width:900px;
+    margin:72px auto 0;
+    text-align:center;
+  }
+  .footer-contact-item{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .footer-contact-item .label{
+    font-family:'Italiana',serif;
+    letter-spacing:.4em;text-transform:uppercase;
+    font-size:12px;padding-left:.4em;
+    opacity:.7;color:var(--cream);
+  }
+  .footer-contact-item a,
+  .footer-contact-item .value{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;font-size:22px;
+    color:var(--cream);text-decoration:none;
+    transition:opacity .3s;
+    letter-spacing:.01em;
+  }
+  .footer-contact-item a:hover{opacity:.7}
+
+  .footer-divider{
+    width:36px;height:1px;
+    background:var(--cream);opacity:.3;
+    margin:80px auto 28px;
+  }
+  .footer-meta{
+    font-family:'Cormorant Garamond',serif;
+    font-size:15px;font-style:italic;font-weight:300;
+    color:var(--cream);opacity:.65;
+    letter-spacing:.04em;
+    margin-bottom:8px;
+  }
+  .copy{
+    font-size:13px;color:var(--cream);opacity:.5;
+    font-style:italic;letter-spacing:.05em;
+  }
+
+  /* ─── ACCESSIBILITY ─────────────────────────── */
+  /* Visible keyboard focus — used only on Tab, not mouse clicks */
+  a:focus-visible,
+  button:focus-visible,
+  .offer-card .cta:focus-visible,
+  .photo:focus-visible,
+  .heart:focus-visible{
+    outline:2px solid var(--ink);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+  nav.main a:focus-visible,
+  .hero-arrow:focus-visible{
+    outline-color:#fff;
+  }
+  footer a:focus-visible,
+  footer .logo:focus-visible{
+    outline-color:var(--cream);
+  }
+
+  /* Visually-hidden but available to screen readers */
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+
+  /* Image fallback — warm placeholder shown if a photo fails to load */
+  .hero-slide,
+  .about-image,
+  .work-grid .cell{
+    background-color:var(--cream-warm);
+  }
+
+  /* ─── REDUCED MOTION ────────────────────────── */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+    .hero-slide{transition:opacity 0s}
+    .offer-card:hover{transform:none}
+    .offer-card img,
+    .work-grid .cell img{transition:none}
+  }
+
+  /* ─── RESPONSIVE ────────────────────────────── */
+  @media (max-width:900px){
+    nav.main{
+      grid-template-columns:1fr;justify-items:center;
+      padding:20px;gap:14px;
+      background:linear-gradient(to bottom,rgba(0,0,0,.3),transparent);
+    }
+    .nav-group{gap:20px;font-size:11px;padding:0!important}
+    .logo .script{font-size:34px}
+    .logo .serif{font-size:15px}
+    .logo .script-sm{font-size:15px}
+
+    section{padding:80px 22px}
+    .section-title{font-size:26px;letter-spacing:.24em}
+    .section-sub{font-size:22px}
+
+    .offers-grid{grid-template-columns:1fr;gap:20px}
+    .offer-card{padding:40px 28px 32px}
+    .offer-card .price{font-size:48px}
+
+    footer{padding:90px 22px 36px}
+    footer .logo .script{font-size:40px}
+    footer .logo .serif{font-size:17px}
+    .footer-invite{font-size:26px;margin-top:32px}
+    .footer-text{font-size:17px;padding:0 8px}
+    .footer-contacts{grid-template-columns:1fr;gap:28px;margin-top:56px}
+    .footer-contact-item a{font-size:19px}
+    .footer-divider{margin:56px auto 22px}
+    .about{grid-template-columns:1fr;gap:40px}
+    .work-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+
+    .testimonials-grid{grid-template-columns:1fr;gap:36px}
+    .testimonial{padding:20px 8px 4px}
+    .testimonial::before{font-size:72px}
+    .testimonial blockquote{font-size:18px}
+
+    .intro{font-size:19px;padding:70px 24px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAVIGATION ─────────────────────────────── -->
+  <nav class="main">
+    <div class="nav-group left">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#offers">Offers</a>
+    </div>
+    <a href="#home" class="logo">
+      <span class="script">estrela</span>
+      <span class="serif">photography</span>
+      <span class="script-sm">by esther</span>
+    </a>
+    <div class="nav-group right">
+      <a href="#work">Work</a>
+      <a href="#testimonials">Kind Words</a>
+      <a href="#contact">Contact</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDESHOW ─────────────────────────── -->
+  <h1 class="sr-only">Estrela Photography — family, pregnancy, portrait and personal branding photography by Esther</h1>
+  <section class="hero" id="home" aria-roledescription="image carousel" aria-label="Featured photographs">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=2400&q=80')" role="img" aria-label="Featured photograph 1 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=2400&q=80')" role="img" aria-label="Featured photograph 2 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1519689680058-324335c77eba?w=2400&q=80')" role="img" aria-label="Featured photograph 3 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=2400&q=80')" role="img" aria-label="Featured photograph 4 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1559732277-7453b141e3a1?w=2400&q=80')" role="img" aria-label="Featured photograph 5 of 5"></div>
+
+    <button class="hero-arrow prev" aria-label="Previous slide"><span aria-hidden="true">‹</span></button>
+    <button class="hero-arrow next" aria-label="Next slide"><span aria-hidden="true">›</span></button>
+    <div class="hero-counter" aria-live="polite" aria-atomic="true"><span id="slideNum">1</span> &nbsp;/&nbsp; 5</div>
+  </section>
+
+  <!-- INTRO QUOTE ────────────────────────────── -->
+  <div class="intro">
+    Moments feel small when they happen,<br>
+    and unforgettable once they're gone.
+    <span class="divider"></span>
+    I photograph families, pregnancies, portraits<br>
+    and the quiet magic of real life.
+  </div>
+
+  <!-- ABOUT ──────────────────────────────────── -->
+  <section id="about">
+    <div class="about">
+      <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80')"></div>
+      <div class="about-text">
+        <h2>About</h2>
+        <div class="sub">hello, I'm Esther</div>
+        <p>I believe the most beautiful images are the ones that feel like a quiet memory — soft light, genuine laughter, a hand held just a bit tighter.</p>
+        <p>For years I've been drawn to the moments between moments: the pause before a kiss, the tumble of a child, the calm weight of a pregnant belly in morning light. That's what I photograph.</p>
+        <p>My work is unhurried and warm. I won't pose you stiffly or promise a polished magazine cover. What I will do is notice — and keep — the truest version of who you are, right now.</p>
+        <div class="signature">— Esther</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERS ─────────────────────────────────── -->
+  <section id="offers">
+    <h2 class="section-title">Offers</h2>
+    <p class="section-sub">simple, honest pricing</p>
+
+    <div class="offers-grid">
+
+      <div class="offer-card">
+        <div class="title">Family</div>
+        <div class="subtitle">everyday closeness</div>
+        <div class="price-label">from</div>
+        <div class="price"><span class="cur">€</span>350</div>
+        <div class="duration">a gentle afternoon together</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li>1.5 hour shoot, at home or outdoors</li>
+          <li>30+ edited photos</li>
+          <li>private online gallery</li>
+          <li>unlimited downloads</li>
+        </ul>
+        <a href="#contact" class="cta">Inquire</a>
+      </div>
+
+      <div class="offer-card featured">
+        <div class="ribbon">most loved</div>
+        <div class="title">Pregnancy</div>
+        <div class="subtitle">the waiting season</div>
+        <div class="price-label">from</div>
+        <div class="price"><span class="cur">€</span>380</div>
+        <div class="duration">a quiet hour or two</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li>1.5–2 hour shoot in soft light</li>
+          <li>35+ edited photos</li>
+          <li>private online gallery</li>
+          <li>optional partner / sibling portraits</li>
+        </ul>
+        <a href="#contact" class="cta">Inquire</a>
+      </div>
+
+      <div class="offer-card">
+        <div class="title">Portrait</div>
+        <div class="subtitle">you, simply you</div>
+        <div class="price-label">from</div>
+        <div class="price"><span class="cur">€</span>280</div>
+        <div class="duration">one hour, one light</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li>1 hour shoot</li>
+          <li>20+ edited photos</li>
+          <li>private online gallery</li>
+          <li>two retouched favourites</li>
+        </ul>
+        <a href="#contact" class="cta">Inquire</a>
+      </div>
+
+      <div class="offer-card">
+        <div class="title">Personal Branding</div>
+        <div class="subtitle">your story, in images</div>
+        <div class="price-label">from</div>
+        <div class="price"><span class="cur">€</span>480</div>
+        <div class="duration">a half-day, your world</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li>up to 3 hour shoot, multiple looks</li>
+          <li>40+ edited photos</li>
+          <li>private online gallery</li>
+          <li>usage rights for web &amp; social</li>
+        </ul>
+        <a href="#contact" class="cta">Inquire</a>
+      </div>
+
+    </div>
+
+    <p class="offers-note">All packages include travel within 30&thinsp;km.  Custom shoots &amp; larger groups on request.</p>
+  </section>
+
+  <!-- PREVIOUS WORK ─────────────────────────── -->
+  <section id="work">
+    <h2 class="section-title">Previous Work</h2>
+    <p class="section-sub">a small selection</p>
+
+    <div class="work-grid">
+      <div class="cell tall"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell wide"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1000&q=80" alt="" loading="lazy"></div>
+      <div class="cell"     ><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1000&q=80" alt="" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS ───────────────────────────── -->
+  <section id="testimonials">
+    <h2 class="section-title">Kind Words</h2>
+    <p class="section-sub">from past clients</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial">
+        <blockquote>
+          Esther has a way of making you forget the camera is even there.
+          Looking at the photos afterwards felt like opening a quiet little
+          window back to that afternoon.
+        </blockquote>
+        <div class="divider-sm"></div>
+        <div class="name">Lena &amp; Marco</div>
+        <div class="meta">Family shoot · 2025</div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote>
+          I was so nervous about a pregnancy shoot.
+          Esther made it feel like a slow walk with a friend.
+          Every photo looks like us at our softest.
+        </blockquote>
+        <div class="divider-sm"></div>
+        <div class="name">Anna</div>
+        <div class="meta">Pregnancy · 2025</div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote>
+          I finally have photos for my website that feel like me —
+          not a stiff headshot. Warm, honest, alive.
+          I keep sending people back to these images.
+        </blockquote>
+        <div class="divider-sm"></div>
+        <div class="name">Clara R.</div>
+        <div class="meta">Personal Branding · 2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT ──────────────────────── -->
+  <footer id="contact">
+    <a href="#home" class="logo">
+      <span class="script">estrela</span>
+      <span class="serif">photography</span>
+      <span class="script-sm">by esther</span>
+    </a>
+
+    <div class="footer-invite">let's create something together</div>
+    <p class="footer-text">
+      If a photo on this page made you pause —
+      write me.  I'd love to hear about you,
+      your people, and the moments you'd like to keep.
+    </p>
+
+    <div class="footer-contacts">
+      <div class="footer-contact-item">
+        <div class="label">Instagram</div>
+        <a href="https://instagram.com/estrelaphotography" target="_blank" rel="noopener">@estrelaphotography</a>
+      </div>
+      <div class="footer-contact-item">
+        <div class="label">WhatsApp</div>
+        <a href="https://wa.me/4900000000000" target="_blank" rel="noopener">+49 · on request</a>
+      </div>
+      <div class="footer-contact-item">
+        <div class="label">Email</div>
+        <a href="mailto:hello@estrelaphotography.com">hello@estrelaphotography.com</a>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+    <div class="footer-meta">Based in Germany · available for travel worldwide · replies within 48 hours</div>
+    <div class="copy">© 2026 Estrela Photography · crafted with love</div>
+  </footer>
+
+  <script>
+    const slides  = document.querySelectorAll('.hero-slide');
+    const counter = document.getElementById('slideNum');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0, timer;
+
+    const go = n => {
+      slides[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      counter.textContent = current + 1;
+    };
+    const autoplay = () => {
+      if (reduceMotion) return;        // respect user's motion preference
+      timer = setInterval(() => go(current + 1), 5500);
+    };
+    const reset = () => { clearInterval(timer); autoplay(); };
+
+    // Pause autoplay when the tab is hidden — saves CPU and respects user attention
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearInterval(timer);
+      else autoplay();
+    });
+
+    document.querySelector('.hero-arrow.next').onclick = () => { go(current + 1); reset(); };
+    document.querySelector('.hero-arrow.prev').onclick = () => { go(current - 1); reset(); };
+    autoplay();
+  </script>
+</body>
+</html>
