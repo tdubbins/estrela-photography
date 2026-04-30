@@ -231,30 +231,30 @@
 
   .hero-counter{
     position:absolute;
-    bottom:max(36px, calc(env(safe-area-inset-bottom) + 22px));
+    bottom:max(34px, calc(env(safe-area-inset-bottom) + 20px));
     left:50%;transform:translateX(-50%);
     color:#fff;
-    font-family:'Italiana',serif;
-    letter-spacing:.35em;font-size:13px;
-    padding-left:.35em;
-    text-shadow:0 1px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.35);
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;font-style:italic;
+    font-size:16px;letter-spacing:.06em;
+    filter:drop-shadow(0 1px 10px rgba(0,0,0,.5));
   }
 
   .hero-arrow{
     position:absolute;top:50%;transform:translateY(-50%);
-    color:#fff;font-size:42px;font-weight:200;line-height:1;
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
     cursor:pointer;
-    background:none;border:none;
-    padding:24px 22px;
+    background:none;border:none;padding:0;
     opacity:.85;transition:opacity .25s, transform .15s;
-    font-family:inherit;
-    text-shadow:0 1px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.35);
+    filter:drop-shadow(0 1px 10px rgba(0,0,0,.5));
   }
+  .hero-arrow svg{width:24px;height:24px;display:block}
   .hero-arrow:hover{opacity:1}
   .hero-arrow:active{transform:translateY(-50%) scale(.92)}
-  .hero-arrow.prev{left:6px}
-  .hero-arrow.next{right:6px}
-  .hero-arrow span{display:block;margin-top:-4px}
+  .hero-arrow.prev{left:14px}
+  .hero-arrow.next{right:14px}
 
   /* ─── SECTIONS ─────────────────────────────── */
   section{padding:120px 48px}
@@ -697,8 +697,12 @@
     <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=2400&q=80')" role="img" aria-label="Featured photograph 4 of 5"></div>
     <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1559732277-7453b141e3a1?w=2400&q=80')" role="img" aria-label="Featured photograph 5 of 5"></div>
 
-    <button class="hero-arrow prev" aria-label="Previous slide"><span aria-hidden="true">‹</span></button>
-    <button class="hero-arrow next" aria-label="Next slide"><span aria-hidden="true">›</span></button>
+    <button class="hero-arrow prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg>
+    </button>
+    <button class="hero-arrow next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg>
+    </button>
     <div class="hero-counter" aria-live="polite" aria-atomic="true"><span id="slideNum">1</span> &nbsp;/&nbsp; 5</div>
   </section>
 
