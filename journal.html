@@ -76,6 +76,57 @@
   .logo .serif{font-family:'Italiana',serif;font-size:16px;letter-spacing:.42em;padding-left:.42em;display:block;color:var(--ink)}
   .logo .script-sm{font-family:'Parisienne',cursive;font-size:15px;display:block;margin-top:-2px;opacity:.85;color:var(--ink)}
 
+  /* ─── NAV "MORE" DROPDOWN (dark text on cream) ─ */
+  .nav-more{position:relative;display:inline-block}
+  .nav-more-toggle{
+    background:none;border:none;padding:0;
+    font-family:'Italiana',serif;
+    letter-spacing:.22em;font-size:13px;
+    text-transform:uppercase;
+    color:var(--ink);cursor:pointer;
+    transition:opacity .3s;
+  }
+  .nav-more-toggle:hover{opacity:.6}
+  .nav-more-toggle .dot{
+    margin-left:.55em;font-size:1em;
+    display:inline-block;
+    transition:transform .25s ease;
+  }
+  .nav-more-toggle[aria-expanded="true"] .dot{transform:rotate(180deg)}
+
+  .nav-more-menu{
+    position:absolute;
+    top:calc(100% + 16px);
+    right:0;
+    min-width:170px;
+    background:#fff;
+    padding:18px 28px;
+    display:flex;flex-direction:column;gap:14px;
+    box-shadow:0 14px 40px -14px rgba(var(--ink-rgb),.35);
+    border:1px solid rgba(var(--ink-rgb),.1);
+    opacity:0;visibility:hidden;
+    transform:translateY(-6px);
+    transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
+  }
+  .nav-more.open .nav-more-menu{
+    opacity:1;visibility:visible;transform:none;
+    transition:opacity .25s ease, transform .25s ease, visibility 0s;
+  }
+  .nav-more-menu a{
+    font-family:'Italiana',serif;
+    letter-spacing:.22em;text-transform:uppercase;
+    font-size:13px;color:var(--ink);
+    text-decoration:none;
+    padding:4px 0;
+    transition:opacity .25s;
+  }
+  .nav-more-menu a:hover{opacity:.55}
+  .nav-more-menu a[aria-current="page"]{
+    border-bottom:1px solid var(--ink-soft);
+    align-self:flex-start;
+    padding-bottom:2px;
+  }
+
   /* ─── HAMBURGER + MOBILE NAV ───────────────── */
   .nav-toggle{
     display:none;position:fixed;
@@ -329,10 +380,15 @@
     </a>
     <div class="nav-group right">
       <a href="index.html#work">Work</a>
-      <a href="journal.html" aria-current="page">Journal</a>
       <a href="index.html#testimonials">Kind Words</a>
       <a href="index.html#contact">Contact</a>
-      <a href="gallery.html">Gallery</a>
+      <div class="nav-more">
+        <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
+        <div class="nav-more-menu" id="navMoreMenu" role="menu">
+          <a href="journal.html" role="menuitem" aria-current="page">Journal</a>
+          <a href="gallery.html" role="menuitem">Gallery</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -476,6 +532,26 @@
 
     window.addEventListener('resize', () => {
       if (!isMobile() && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
+
+    // ─── DESKTOP NAV "MORE" DROPDOWN ───────────────────
+    const navMore       = document.querySelector('.nav-more');
+    const navMoreToggle = navMore.querySelector('.nav-more-toggle');
+
+    const closeMore = () => {
+      navMore.classList.remove('open');
+      navMoreToggle.setAttribute('aria-expanded', 'false');
+    };
+    navMoreToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = navMore.classList.toggle('open');
+      navMoreToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', e => {
+      if (!navMore.contains(e.target)) closeMore();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMore();
     });
   </script>
 </body>
