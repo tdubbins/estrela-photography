@@ -4,6 +4,11 @@ SPEC.md
 content-needed.md
 content-needed.pdf
 
+# Esther's original-resolution photos & raw working files — never commit
+# (web-optimized copies live in ./images/ and are committed)
+content/
+lighthouse reports/
+
 # OS / editor noise
 .DS_Store
 .idea/
