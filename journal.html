@@ -512,22 +512,8 @@
       if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
     });
 
-    // ─── HIDE NAV ON SCROLL DOWN (both desktop and mobile) ───
+    // Nav stays visible throughout the page
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
-    let lastY = 0, ticking = false;
-    window.addEventListener('scroll', () => {
-      if (document.body.classList.contains('menu-open')) return;
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y < 80)         nav.classList.remove('is-hidden');
-        else if (y > lastY) nav.classList.add('is-hidden');
-        else                nav.classList.remove('is-hidden');
-        lastY = y;
-        ticking = false;
-      });
-    }, {passive:true});
 
     window.addEventListener('resize', () => {
       if (!isMobile() && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
