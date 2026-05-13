@@ -512,11 +512,10 @@
       if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
     });
 
-    // ─── HIDE NAV ON SCROLL DOWN (mobile only) ───
+    // ─── HIDE NAV ON SCROLL DOWN (both desktop and mobile) ───
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
     let lastY = 0, ticking = false;
     window.addEventListener('scroll', () => {
-      if (!isMobile()) { nav.classList.remove('is-hidden'); return; }
       if (document.body.classList.contains('menu-open')) return;
       if (ticking) return;
       ticking = true;

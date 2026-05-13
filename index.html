@@ -1047,12 +1047,11 @@
 
     autoplay();
 
-    // Hide top nav on scroll-down (mobile only — on desktop the transparent nav is part of the hero look)
+    // Hide top nav on scroll-down, show on scroll-up (both desktop and mobile)
     const nav = document.querySelector('nav.main');
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
     let lastY = 0, ticking = false;
     window.addEventListener('scroll', () => {
-      if (!isMobile()) { nav.classList.remove('is-hidden'); return; }
       if (document.body.classList.contains('menu-open')) return;
       if (ticking) return;
       ticking = true;
