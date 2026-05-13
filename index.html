@@ -104,9 +104,30 @@
     grid-template-columns:1fr auto 1fr;
     align-items:center;
     pointer-events:none;
-    transition:transform .35s ease;
+    transition:transform .35s ease, background .35s ease, backdrop-filter .35s ease;
   }
   nav.main.is-hidden{transform:translateY(-100%)}
+
+  /* Past the hero — swap to cream backdrop + dark text so the nav stays legible on light sections */
+  body.past-hero nav.main{
+    background:linear-gradient(to bottom,rgba(246,241,232,.94) 0%,rgba(246,241,232,.7) 70%,rgba(246,241,232,0) 100%);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  body.past-hero .nav-group a,
+  body.past-hero .nav-more-toggle,
+  body.past-hero .logo,
+  body.past-hero .logo .script,
+  body.past-hero .logo .serif,
+  body.past-hero .logo .script-sm{
+    color:var(--ink);
+    text-shadow:none;
+    transition:color .3s ease;
+  }
+  body.past-hero .nav-toggle span{
+    background:var(--ink);
+    box-shadow:none;
+  }
   nav.main > *{pointer-events:auto}
 
   .nav-group{
@@ -1047,7 +1068,7 @@
 
     autoplay();
 
-    // Hide top nav on scroll-down, show on scroll-up (both desktop and mobile)
+    // Hide top nav on scroll-down, show on scroll-up. Also swap to dark-text mode once past the hero.
     const nav = document.querySelector('nav.main');
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
     let lastY = 0, ticking = false;
@@ -1060,6 +1081,8 @@
         if (y < 80)         nav.classList.remove('is-hidden');   // always visible near top
         else if (y > lastY) nav.classList.add('is-hidden');      // scrolling down
         else                nav.classList.remove('is-hidden');   // scrolling up
+        // Past the hero → dark-text + cream-tinted nav
+        document.body.classList.toggle('past-hero', y > window.innerHeight - 60);
         lastY = y;
         ticking = false;
       });
