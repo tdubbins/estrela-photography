@@ -272,46 +272,46 @@
   /* ─── FOOTER ─────────────────────────────── */
   footer{
     background:var(--moss-deep);color:var(--cream);
-    padding:130px 48px max(48px, calc(env(safe-area-inset-bottom) + 24px));
+    padding:72px 48px max(36px, calc(env(safe-area-inset-bottom) + 20px));
     text-align:center;position:relative;overflow:hidden;
   }
   footer::before{
     content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-    width:80px;height:1px;background:var(--cream);opacity:.35;
+    width:64px;height:1px;background:var(--cream);opacity:.35;
   }
   footer .logo{color:var(--cream);text-shadow:none;display:inline-block}
-  footer .logo .script{color:var(--cream);font-size:54px}
-  footer .logo .serif{color:var(--cream);font-size:22px;opacity:.9}
-  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:20px}
+  footer .logo .script{color:var(--cream);font-size:42px}
+  footer .logo .serif{color:var(--cream);font-size:17px;opacity:.9}
+  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:16px}
   .footer-invite{
-    font-family:'Parisienne',cursive;font-size:34px;
-    margin-top:48px;color:var(--cream);
+    font-family:'Parisienne',cursive;font-size:28px;
+    margin-top:28px;color:var(--cream);
   }
   .footer-contacts{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
-    max-width:900px;margin:72px auto 0;text-align:center;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+    max-width:880px;margin:44px auto 0;text-align:center;
   }
-  .footer-contact-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .footer-contact-item{display:flex;flex-direction:column;align-items:center;gap:8px}
   .footer-contact-item .label{
     font-family:'Italiana',serif;
     letter-spacing:.4em;text-transform:uppercase;
-    font-size:12px;padding-left:.4em;opacity:.7;color:var(--cream);
+    font-size:11px;padding-left:.4em;opacity:.7;color:var(--cream);
   }
   .footer-contact-item a{
-    font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-size:19px;
     color:var(--cream);text-decoration:none;transition:opacity .3s;
   }
   .footer-contact-item a:hover{opacity:.7}
   .footer-divider{
-    width:36px;height:1px;background:var(--cream);opacity:.3;
-    margin:80px auto 28px;
+    width:32px;height:1px;background:var(--cream);opacity:.3;
+    margin:48px auto 18px;
   }
   .footer-meta{
     font-family:'Cormorant Garamond',serif;
-    font-size:15px;font-style:italic;font-weight:300;
-    color:var(--cream);opacity:.65;letter-spacing:.04em;margin-bottom:8px;
+    font-size:14px;font-style:italic;font-weight:300;
+    color:var(--cream);opacity:.65;letter-spacing:.04em;margin-bottom:6px;
   }
-  .copy{font-size:13px;color:var(--cream);opacity:.5;font-style:italic;letter-spacing:.05em}
+  .copy{font-size:12px;color:var(--cream);opacity:.5;font-style:italic;letter-spacing:.05em}
 
   /* ─── A11Y + REDUCED MOTION ──────────────── */
   a:focus-visible, button:focus-visible{
@@ -351,13 +351,14 @@
     .entry-body{font-size:17px}
     .entry-photos{grid-template-columns:1fr;gap:6px;margin:32px auto}
 
-    footer{padding:90px 22px max(36px, calc(env(safe-area-inset-bottom) + 20px))}
-    footer .logo .script{font-size:40px}
-    footer .logo .serif{font-size:17px}
-    .footer-invite{font-size:26px;margin-top:32px}
-    .footer-contacts{grid-template-columns:1fr;gap:28px;margin-top:56px}
-    .footer-contact-item a{font-size:19px}
-    .footer-divider{margin:56px auto 22px}
+    footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
+    footer .logo .script{font-size:36px}
+    footer .logo .serif{font-size:15px}
+    footer .logo .script-sm{font-size:14px}
+    .footer-invite{font-size:24px;margin-top:22px}
+    .footer-contacts{grid-template-columns:1fr;gap:22px;margin-top:36px}
+    .footer-contact-item a{font-size:18px}
+    .footer-divider{margin:40px auto 18px}
   }
 
   /* Page background tone — slightly different from index, lets the journal feel like its own room */
