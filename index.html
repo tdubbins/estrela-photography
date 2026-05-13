@@ -460,25 +460,56 @@
     font-size:32px;margin-top:28px;
   }
 
-  /* ─── WORK ──────────────────────────────────── */
-  .work-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    grid-auto-rows:240px;
-    gap:6px;
-    max-width:1500px;margin:0 auto;
-  }
-  .work-grid .cell{
+  /* ─── ARCHIVE (single-photo slideshow) ─────── */
+  .archive{
     position:relative;
-    overflow:hidden;
-    transition:opacity .4s;
+    max-width:1300px;
+    margin:0 auto;
   }
-  .work-grid .cell:hover{opacity:.85}
-  .work-grid .cell.tall{grid-row:span 2}
-  .work-grid .cell.wide{grid-column:span 2}
-  .work-grid .cell img{
+  .archive-stage{
+    position:relative;
+    width:100%;
+    height:min(78vh, 760px);
+    background:var(--cream-warm);
+    overflow:hidden;
+  }
+  .archive-img{
+    position:absolute;inset:0;
     width:100%;height:100%;
-    object-fit:cover;display:block;
+    object-fit:contain;       /* show whole photo, no crop, regardless of orientation */
+    opacity:0;
+    transition:opacity .55s ease;
+    background:var(--cream-warm);
+  }
+  .archive-img.active{opacity:1}
+
+  .archive-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink);
+    cursor:pointer;
+    background:rgba(246,241,232,.7);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(var(--ink-rgb),.18);
+    border-radius:50%;
+    opacity:.9;transition:opacity .25s, background .25s, transform .15s;
+    padding:0;
+    z-index:2;
+  }
+  .archive-arrow svg{width:22px;height:22px;display:block}
+  .archive-arrow:hover{opacity:1;background:rgba(246,241,232,.95)}
+  .archive-arrow:active{transform:translateY(-50%) scale(.92)}
+  .archive-arrow.prev{left:18px}
+  .archive-arrow.next{right:18px}
+
+  .archive-counter{
+    text-align:center;
+    margin-top:22px;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;font-style:italic;
+    font-size:16px;letter-spacing:.06em;
+    color:var(--ink-soft);
   }
 
   /* ─── TESTIMONIALS ──────────────────────────── */
@@ -688,7 +719,10 @@
     .footer-contact-item a{font-size:19px}
     .footer-divider{margin:56px auto 22px}
     .about{grid-template-columns:1fr;gap:40px}
-    .work-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+    .archive-stage{height:min(60vh, 500px)}
+    .archive-arrow{width:40px;height:40px}
+    .archive-arrow.prev{left:8px}
+    .archive-arrow.next{right:8px}
 
     .testimonials-grid{grid-template-columns:1fr;gap:36px}
     .testimonial{padding:20px 8px 4px}
@@ -714,7 +748,7 @@
       <span class="script-sm">by esther</span>
     </a>
     <div class="nav-group right">
-      <a href="#work">Work</a>
+      <a href="#work">Archive</a>
       <a href="#testimonials">Kind Words</a>
       <a href="#contact">Contact</a>
       <div class="nav-more">
@@ -740,7 +774,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#offers">Offers</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Archive</a></li>
       <li><a href="journal.html">Journal</a></li>
       <li><a href="#testimonials">Kind Words</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -865,20 +899,30 @@
     <p class="offers-note">All packages include travel within 30&thinsp;km.  Custom shoots &amp; larger groups on request.</p>
   </section>
 
-  <!-- PREVIOUS WORK ─────────────────────────── -->
+  <!-- THE ARCHIVE ─────────────────────────────── -->
   <section id="work">
-    <h2 class="section-title">Previous Work</h2>
-    <p class="section-sub">a small selection</p>
+    <h2 class="section-title">The Archive</h2>
+    <p class="section-sub">A curated collection of my previous work</p>
 
-    <div class="work-grid">
-      <div class="cell tall"><img src="images/work/01.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/02.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/03.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/04.jpg" alt="" loading="lazy"></div>
-      <div class="cell wide"><img src="images/work/05.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/06.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/07.jpg" alt="" loading="lazy"></div>
-      <div class="cell"     ><img src="images/work/08.jpg" alt="" loading="lazy"></div>
+    <div class="archive" id="archive" aria-roledescription="image carousel" aria-label="Photography archive">
+      <div class="archive-stage">
+        <img class="archive-img active" src="images/work/01.jpg" alt="Photograph 1" loading="eager">
+        <img class="archive-img"        src="images/work/02.jpg" alt="Photograph 2" loading="lazy">
+        <img class="archive-img"        src="images/work/03.jpg" alt="Photograph 3" loading="lazy">
+        <img class="archive-img"        src="images/work/04.jpg" alt="Photograph 4" loading="lazy">
+        <img class="archive-img"        src="images/work/05.jpg" alt="Photograph 5" loading="lazy">
+        <img class="archive-img"        src="images/work/06.jpg" alt="Photograph 6" loading="lazy">
+        <img class="archive-img"        src="images/work/07.jpg" alt="Photograph 7" loading="lazy">
+        <img class="archive-img"        src="images/work/08.jpg" alt="Photograph 8" loading="lazy">
+
+        <button class="archive-arrow prev" aria-label="Previous photograph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg>
+        </button>
+        <button class="archive-arrow next" aria-label="Next photograph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg>
+        </button>
+      </div>
+      <div class="archive-counter" aria-live="polite" aria-atomic="true"><span id="archIdx">1</span> / <span id="archTot">8</span></div>
     </div>
   </section>
 
@@ -1057,6 +1101,51 @@
     // Close if the viewport grows past the breakpoint while open
     window.addEventListener('resize', () => {
       if (!isMobile() && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
+
+    // ─── THE ARCHIVE — manual slideshow ──────────────
+    const archImgs = document.querySelectorAll('.archive-img');
+    const archIdx  = document.getElementById('archIdx');
+    document.getElementById('archTot').textContent = archImgs.length;
+    let archCur = 0;
+
+    const archGo = n => {
+      archImgs[archCur].classList.remove('active');
+      archCur = (n + archImgs.length) % archImgs.length;
+      archImgs[archCur].classList.add('active');
+      archIdx.textContent = archCur + 1;
+    };
+
+    document.querySelector('.archive-arrow.next').onclick = () => archGo(archCur + 1);
+    document.querySelector('.archive-arrow.prev').onclick = () => archGo(archCur - 1);
+
+    // Swipe on the archive stage
+    const archStage = document.querySelector('.archive-stage');
+    let archX = null, archY = null;
+    archStage.addEventListener('touchstart', e => {
+      archX = e.touches[0].clientX; archY = e.touches[0].clientY;
+    }, {passive:true});
+    archStage.addEventListener('touchend', e => {
+      if (archX === null) return;
+      const dx = e.changedTouches[0].clientX - archX;
+      const dy = e.changedTouches[0].clientY - archY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        archGo(archCur + (dx > 0 ? -1 : 1));
+      }
+      archX = archY = null;
+    });
+
+    // Arrow keys when the archive is in view
+    const archObserver = new IntersectionObserver(entries => {
+      entries.forEach(en => { archInView = en.isIntersecting; });
+    }, {threshold:.3});
+    let archInView = false;
+    archObserver.observe(document.getElementById('archive'));
+    document.addEventListener('keydown', e => {
+      if (!archInView) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft')  archGo(archCur - 1);
+      if (e.key === 'ArrowRight') archGo(archCur + 1);
     });
 
     // ─── DESKTOP NAV "MORE" DROPDOWN ───────────────────
