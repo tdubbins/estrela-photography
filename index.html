@@ -45,7 +45,7 @@
 
 <!-- Bunny Fonts — drop-in, GDPR-friendly replacement for Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400|italiana:400|parisienne:400&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400|italiana:400|parisienne:400|special-elite:400&display=swap" rel="stylesheet">
 
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
@@ -81,6 +81,7 @@
     --sage-mist:#dfe6d5;    /* pale sage tint — section backgrounds */
     --moss-deep:#3d4a35;    /* dark moss — footer & dramatic accents */
     --moss-deep-soft:#6f7a65;/* softer moss on dark bg */
+    --moss-accent:#2c3826;  /* deepest moss — hover boxes, button fills */
     --ink-rgb:62,74,58;     /* rgb of --ink for rgba() */
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -130,9 +131,9 @@
   nav.main > *{pointer-events:auto}
 
   .nav-group{
-    display:flex;gap:44px;
-    font-family:'Italiana',serif;
-    letter-spacing:.22em;
+    display:flex;gap:36px;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;
     font-size:13px;
     text-transform:uppercase;
   }
@@ -141,10 +142,20 @@
 
   .nav-group a{
     color:#fff;text-decoration:none;
-    transition:opacity .3s, color .3s ease;
+    transition:background .25s ease, color .25s ease;
     text-shadow:0 1px 20px rgba(0,0,0,.25);
+    padding:6px 12px;
+    border-radius:2px;
   }
-  .nav-group a:hover{opacity:.7}
+  .nav-group a:hover{
+    background:var(--moss-accent);
+    color:var(--cream);
+    text-shadow:none;
+  }
+  body.past-hero .nav-group a:hover{
+    background:var(--moss-accent);
+    color:var(--cream);
+  }
 
   .logo{
     text-align:center;color:#fff;line-height:.95;
@@ -168,15 +179,20 @@
   /* ─── NAV "MORE" DROPDOWN ──────────────────── */
   .nav-more{position:relative;display:inline-block}
   .nav-more-toggle{
-    background:none;border:none;padding:0;
-    font-family:'Italiana',serif;
-    letter-spacing:.22em;font-size:13px;
+    background:none;border:none;
+    padding:6px 12px;border-radius:2px;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;font-size:13px;
     text-transform:uppercase;
     color:#fff;cursor:pointer;
     text-shadow:0 1px 20px rgba(0,0,0,.25);
-    transition:opacity .3s, color .3s ease;
+    transition:background .25s ease, color .25s ease;
   }
-  .nav-more-toggle:hover{opacity:.7}
+  .nav-more-toggle:hover{
+    background:var(--moss-accent);
+    color:var(--cream);
+    text-shadow:none;
+  }
   .nav-more-toggle .dot{
     margin-left:.55em;font-size:1em;
     display:inline-block;
@@ -203,14 +219,19 @@
     transition:opacity .25s ease, transform .25s ease, visibility 0s;
   }
   .nav-more-menu a{
-    font-family:'Italiana',serif;
-    letter-spacing:.22em;text-transform:uppercase;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;text-transform:uppercase;
     font-size:13px;color:var(--ink);
     text-decoration:none;text-shadow:none;
-    padding:4px 0;
-    transition:opacity .25s;
+    padding:6px 10px;
+    margin:0 -10px;
+    border-radius:2px;
+    transition:background .25s, color .25s;
   }
-  .nav-more-menu a:hover{opacity:.55}
+  .nav-more-menu a:hover{
+    background:var(--moss-accent);
+    color:var(--cream);
+  }
 
   /* ─── HAMBURGER + MOBILE NAV ───────────────── */
   /* Hamburger is hidden on desktop; revealed in the mobile media query.
@@ -263,15 +284,19 @@
   .mobile-nav li{margin:0}
   .mobile-nav a{
     display:inline-block;
-    font-family:'Italiana',serif;
-    font-size:20px;letter-spacing:.32em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:18px;letter-spacing:.15em;
     text-transform:uppercase;
     text-decoration:none;
     color:var(--ink);
-    padding:14px 22px 14px calc(22px + .32em);
-    transition:opacity .25s;
+    padding:12px 22px;
+    border-radius:2px;
+    transition:background .25s, color .25s;
   }
-  .mobile-nav a:hover{opacity:.55}
+  .mobile-nav a:hover{
+    background:var(--moss-accent);
+    color:var(--cream);
+  }
   .mobile-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
   /* When the mobile menu is open, freeze the body */
@@ -336,11 +361,12 @@
   section{padding:120px 48px}
 
   .section-title{
-    font-family:'Italiana',serif;
-    font-size:40px;letter-spacing:.3em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:36px;letter-spacing:.16em;
     text-align:center;text-transform:uppercase;
     font-weight:400;
-    padding-left:.3em;
+    padding-left:.16em;
+    color:var(--moss-deep);
   }
   .section-sub{
     font-family:'Parisienne',cursive;
@@ -369,79 +395,90 @@
   .offer-card{
     position:relative;
     background:#fdfbf6;
-    border:1px solid rgba(var(--ink-rgb),.12);
-    padding:48px 40px 40px;
+    border:1px solid rgba(var(--ink-rgb),.22);
+    padding:48px 36px 36px;
     display:flex;flex-direction:column;
     text-align:center;
-    transition:transform .4s ease, box-shadow .4s ease;
+    transition:transform .4s ease, box-shadow .4s ease, border-color .3s ease;
   }
   .offer-card:hover{
     transform:translateY(-4px);
-    box-shadow:0 20px 60px -20px rgba(var(--ink-rgb),.22);
+    box-shadow:0 20px 60px -20px rgba(var(--ink-rgb),.32);
+    border-color:var(--moss-deep);
   }
   .offer-card.featured{
     background:var(--cream-warm);
-    border-color:rgba(var(--ink-rgb),.2);
+    border-color:rgba(var(--ink-rgb),.32);
   }
   .offer-card .ribbon{
-    position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);
     font-family:'Parisienne',cursive;
     color:var(--ink-soft);font-size:16px;
   }
   .offer-card .title{
-    font-family:'Italiana',serif;
-    letter-spacing:.32em;text-transform:uppercase;
-    font-size:19px;padding-left:.32em;
-    margin-top:8px;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.12em;text-transform:uppercase;
+    font-size:18px;padding-left:.12em;
+    color:var(--moss-deep);
+    margin-top:6px;
   }
   .offer-card .subtitle{
-    font-family:'Parisienne',cursive;
-    font-size:22px;color:var(--ink-soft);
-    margin-top:2px;margin-bottom:28px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-style:italic;
+    font-size:14px;color:var(--ink-soft);
+    margin-top:14px;margin-bottom:28px;
+    line-height:1.5;
+    max-width:260px;
+    margin-left:auto;margin-right:auto;
   }
   .offer-card .price-label{
-    font-family:'Italiana',serif;
-    font-size:11px;letter-spacing:.35em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:11px;letter-spacing:.22em;
     text-transform:uppercase;color:var(--ink-soft);
-    padding-left:.35em;
+    padding-left:.22em;
   }
   .offer-card .price{
     font-family:'Cormorant Garamond',serif;
-    font-weight:300;
-    font-size:58px;line-height:1;
-    margin:8px 0 4px;
-    color:var(--ink);
+    font-weight:400;
+    font-size:54px;line-height:1;
+    margin:6px 0 6px;
+    color:var(--moss-deep);
   }
-  .offer-card .price .cur{font-size:32px;vertical-align:top;margin-right:2px}
-  .offer-card .duration{
-    font-family:'Parisienne',cursive;
-    font-size:18px;color:var(--ink-soft);
-    margin-bottom:28px;
-  }
+  .offer-card .price .cur{font-size:28px;vertical-align:top;margin-right:2px}
   .offer-card .divider-line{
-    width:36px;height:1px;background:var(--ink-soft);
-    opacity:.3;margin:0 auto 28px;
+    width:32px;height:1px;background:var(--moss-deep);
+    opacity:.4;margin:18px auto 22px;
   }
   .offer-card ul{
-    list-style:none;padding:0;margin:0 0 32px;
-    font-size:17px;line-height:1.9;
+    list-style:none;padding:0;margin:0 0 28px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:13px;line-height:1.7;
     color:var(--ink);
+    text-align:left;
   }
-  .offer-card ul li{font-weight:300}
+  .offer-card ul li{margin-bottom:10px}
+  .offer-card ul li strong{color:var(--moss-deep);font-weight:400;letter-spacing:.04em}
+  .offer-card ul ul{
+    margin:6px 0 6px 16px;
+    list-style:disc;
+    color:var(--ink-soft);
+    font-size:12.5px;
+  }
+  .offer-card ul ul li{margin-bottom:4px}
   .offer-card .cta{
     display:inline-block;
     margin:0 auto;
-    font-family:'Italiana',serif;
+    font-family:'Special Elite','Courier New',monospace;
     text-transform:uppercase;
-    letter-spacing:.3em;padding-left:.3em;
+    letter-spacing:.18em;padding-left:.18em;
     font-size:12px;
     color:var(--ink);
     text-decoration:none;
-    border:1px solid var(--ink);
-    padding:14px 32px 14px calc(32px + .3em);
-    transition:background .3s, color .3s;
+    border:1px solid var(--moss-deep);
+    padding:14px 28px 14px calc(28px + .18em);
+    transition:background .25s, color .25s;
   }
-  .offer-card .cta:hover{background:var(--ink);color:var(--cream)}
+  .offer-card .cta:hover{background:var(--moss-accent);color:var(--cream);border-color:var(--moss-accent)}
   .offers-note{
     text-align:center;
     margin-top:56px;
@@ -460,24 +497,32 @@
     aspect-ratio:4/5;
     background-size:cover;background-position:center;
   }
-  .about-text h2{
-    font-family:'Italiana',serif;
-    font-size:34px;letter-spacing:.28em;
-    text-transform:uppercase;font-weight:400;
-    margin-bottom:4px;padding-left:.28em;
-  }
-  .about-text .sub{
-    font-family:'Parisienne',cursive;
-    font-size:30px;color:var(--ink-soft);
-    margin-bottom:32px;
-  }
   .about-text p{
-    font-size:19px;line-height:1.85;
-    margin-bottom:18px;font-weight:300;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:17px;line-height:1.85;
+    margin-bottom:22px;
+    color:var(--ink);
   }
-  .about-text .signature{
-    font-family:'Parisienne',cursive;
-    font-size:32px;margin-top:28px;
+  .about-text .sig-name{
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:18px;
+    margin-top:34px;
+    color:var(--moss-deep);
+    letter-spacing:.04em;
+  }
+  .about-text .sig-title{
+    font-family:'Special Elite','Courier New',monospace;
+    font-style:italic;
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+  .about-text .long-divider{
+    margin-top:32px;
+    width:100%;
+    height:1px;
+    background:var(--ink-soft);
+    opacity:.4;
   }
 
   /* ─── ARCHIVE (single-photo slideshow) ─────── */
@@ -532,50 +577,48 @@
     color:var(--ink-soft);
   }
 
-  /* ─── TESTIMONIALS ──────────────────────────── */
+  /* ─── NOTES (testimonials) ───────────────────── */
   #testimonials{background:var(--sage-mist)}
   .testimonials-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+    display:flex;flex-direction:column;
     gap:56px;
-    max-width:1200px;margin:0 auto;
+    max-width:720px;margin:0 auto;
   }
   .testimonial{
     position:relative;
     text-align:center;
-    padding:32px 16px 8px;
+    padding:8px 16px;
   }
   .testimonial::before{
     content:'“';
     display:block;
     font-family:'Cormorant Garamond',serif;
-    font-size:96px;line-height:.6;
-    color:var(--ink);opacity:.18;
-    margin-bottom:12px;
+    font-size:84px;line-height:.6;
+    color:var(--moss-deep);opacity:.2;
+    margin-bottom:8px;
   }
   .testimonial blockquote{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-weight:300;
-    font-size:20px;line-height:1.7;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:15px;line-height:1.85;
     color:var(--ink);
-    margin-bottom:28px;
+    margin-bottom:22px;
   }
   .testimonial .divider-sm{
     width:28px;height:1px;
-    background:var(--ink-soft);opacity:.4;
-    margin:0 auto 18px;
+    background:var(--moss-deep);opacity:.5;
+    margin:0 auto 14px;
   }
   .testimonial .name{
-    font-family:'Parisienne',cursive;
-    font-size:24px;color:var(--ink);
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:15px;color:var(--moss-deep);
+    letter-spacing:.05em;
     margin-bottom:4px;
   }
   .testimonial .meta{
-    font-family:'Italiana',serif;
-    font-size:11px;letter-spacing:.35em;
-    text-transform:uppercase;
+    font-family:'Special Elite','Courier New',monospace;
+    font-style:italic;
+    font-size:12px;letter-spacing:.04em;
     color:var(--ink-soft);
-    padding-left:.35em;
   }
 
   /* ─── FOOTER ────────────────────────────────── */
@@ -719,12 +762,14 @@
     .logo .script-sm{font-size:14px}
 
     section{padding:80px 22px}
-    .section-title{font-size:26px;letter-spacing:.24em}
+    .section-title{font-size:26px;letter-spacing:.12em}
     .section-sub{font-size:22px}
 
     .offers-grid{grid-template-columns:1fr;gap:20px}
     .offer-card{padding:40px 28px 32px}
-    .offer-card .price{font-size:48px}
+    .offer-card .price{font-size:46px}
+    .offer-card .title{font-size:17px}
+    .offer-card .subtitle{font-size:13.5px}
 
     footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
     footer .logo .script{font-size:36px}
@@ -740,10 +785,10 @@
     .archive-arrow.prev{left:8px}
     .archive-arrow.next{right:8px}
 
-    .testimonials-grid{grid-template-columns:1fr;gap:36px}
-    .testimonial{padding:20px 8px 4px}
-    .testimonial::before{font-size:72px}
-    .testimonial blockquote{font-size:18px}
+    .testimonials-grid{gap:40px}
+    .testimonial{padding:8px 6px}
+    .testimonial::before{font-size:64px}
+    .testimonial blockquote{font-size:14px}
 
     .intro{font-size:23px;padding:80px 24px}
   }
@@ -755,7 +800,7 @@
   <nav class="main">
     <div class="nav-group left">
       <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a href="#about">Esther</a>
       <a href="#offers">Sessions</a>
     </div>
     <a href="#home" class="logo">
@@ -765,8 +810,8 @@
     </a>
     <div class="nav-group right">
       <a href="#work">Archive</a>
-      <a href="#testimonials">Kind Words</a>
-      <a href="#contact">Contact</a>
+      <a href="#testimonials">Notes</a>
+      <a href="#contact">Connect</a>
       <div class="nav-more">
         <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
         <div class="nav-more-menu" id="navMoreMenu" role="menu">
@@ -788,12 +833,12 @@
     <div class="mobile-nav-mark">estrela</div>
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">Esther</a></li>
       <li><a href="#offers">Sessions</a></li>
       <li><a href="#work">Archive</a></li>
       <li><a href="journal.html">Journal</a></li>
-      <li><a href="#testimonials">Kind Words</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#testimonials">Notes</a></li>
+      <li><a href="#contact">Connect</a></li>
       <li><a href="gallery.html">The Gallery</a></li>
     </ul>
   </div>
@@ -804,10 +849,11 @@
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
-    <div class="hero-slide active" style="background-image:url('images/hero/01.jpg'); background-position:42% 42%" role="img" aria-label="Featured photograph 1 of 4"></div>
-    <div class="hero-slide"        style="background-image:url('images/hero/02.jpg'); background-position:28% 58%" role="img" aria-label="Featured photograph 2 of 4"></div>
-    <div class="hero-slide"        style="background-image:url('images/hero/03.jpg'); background-position:45% 35%" role="img" aria-label="Featured photograph 3 of 4"></div>
-    <div class="hero-slide"        style="background-image:url('images/hero/04.jpg'); background-position:55% 32%" role="img" aria-label="Featured photograph 4 of 4"></div>
+    <div class="hero-slide active" style="background-image:url('images/hero/01.jpg'); background-position:55% 65%" role="img" aria-label="Featured photograph 1 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('images/hero/02.jpg'); background-position:45% 35%" role="img" aria-label="Featured photograph 2 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('images/hero/03.jpg'); background-position:50% 50%" role="img" aria-label="Featured photograph 3 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('images/hero/04.jpg'); background-position:42% 42%" role="img" aria-label="Featured photograph 4 of 5"></div>
+    <div class="hero-slide"        style="background-image:url('images/hero/05.jpg'); background-position:50% 50%" role="img" aria-label="Featured photograph 5 of 5"></div>
 
     <button class="hero-arrow prev" aria-label="Previous slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg>
@@ -815,7 +861,7 @@
     <button class="hero-arrow next" aria-label="Next slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg>
     </button>
-    <div class="hero-counter" aria-live="polite" aria-atomic="true"><span id="slideNum">1</span> &nbsp;/&nbsp; 4</div>
+    <div class="hero-counter" aria-live="polite" aria-atomic="true"><span id="slideNum">1</span> &nbsp;/&nbsp; 5</div>
   </section>
 
   <!-- INTRO QUOTE ────────────────────────────── -->
@@ -828,108 +874,119 @@
     <div class="about">
       <div class="about-image" style="background-image:url('images/about/esther.jpg')" role="img" aria-label="Portrait of Esther"></div>
       <div class="about-text">
-        <h2>Behind the Camera</h2>
-        <div class="sub">hello, I'm Esther</div>
-        <p>Usually, these introductions start with a name, age, and country of origin. That can come later. Words can only say so much. Photographs say the rest. To me, photography is more than just pressing a button. It's about seeing, not just looking. About feeling. Capturing something fleeting and turning it into a memory you can return to. A photograph freezes time. A form of time travel.</p>
-        <p>That is also how I live life, I notice. The scent of lavender. Warm evenings under palm trees. Swallows gliding through the sky before sunset. Daydreaming of a Portuguese home with a lemon tree in the garden. Moving to Portugal by myself changed everything. Since then, life has been filled with quiet "pinch me" moments and an even deeper appreciation for authenticity, beauty and imperfection. Because in the end, it is not the basic facts about someone that truly tell their story. And when words no longer suffice, images do.</p>
-        <p>So, this is About Me. Esther. My name means star. That is how the name Estrela Photography came to be. Estrela is the Portuguese word for star. Light has always fascinated me. Maybe that is also why I fell in love with photography.</p>
-        <div class="signature">— Esther</div>
+        <p>To me, photography is art. It is the closest thing to time travel we have; a gentle way to frame your essence in a fast-paced world.</p>
+        <p>I am the observer. Ever since I was a child, I subconsciously knew how valuable memories are. Now, out here in the golden light of the Algarve, I create safe, quiet spaces where you can completely forget about the lens.</p>
+        <p>When people tell me my photographs are still on their walls years later, that is when my soul smiles.</p>
+        <div class="sig-name">Esther</div>
+        <div class="sig-title">The Observer <span aria-hidden="true">🤍</span></div>
+        <div class="long-divider" aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
-  <!-- OFFERS ─────────────────────────────────── -->
+  <!-- SESSIONS ───────────────────────────────── -->
   <section id="offers">
     <h2 class="section-title">Sessions</h2>
-    <p class="section-sub">ways we can make this</p>
+    <p class="section-sub">find the one that feels like you</p>
 
     <div class="offers-grid">
 
       <div class="offer-card">
-        <div class="title">Family</div>
-        <div class="subtitle">everyday closeness</div>
-        <div class="price-label">from</div>
-        <div class="price"><span class="cur">€</span>350</div>
-        <div class="duration">a gentle afternoon together</div>
+        <div class="title">The Essence Session</div>
+        <div class="subtitle">a gentle, focused session — your story in its purest, most minimalist form</div>
+        <div class="price-label">Investment</div>
+        <div class="price"><span class="cur">€</span>225</div>
         <div class="divider-line"></div>
         <ul>
-          <li>1.5 hour shoot, at home or outdoors</li>
-          <li>30+ edited photos</li>
-          <li>private online gallery</li>
-          <li>unlimited downloads</li>
-        </ul>
-        <a href="#contact" class="cta">Reach out</a>
-      </div>
-
-      <div class="offer-card featured">
-        <div class="ribbon">most loved</div>
-        <div class="title">Pregnancy</div>
-        <div class="subtitle">the waiting season</div>
-        <div class="price-label">from</div>
-        <div class="price"><span class="cur">€</span>380</div>
-        <div class="duration">a quiet hour or two</div>
-        <div class="divider-line"></div>
-        <ul>
-          <li>1.5–2 hour shoot in soft light</li>
-          <li>35+ edited photos</li>
-          <li>private online gallery</li>
-          <li>optional partner / sibling portraits</li>
+          <li><strong>Location:</strong> one beautiful beach or nature location in Lagos / Algarve</li>
+          <li><strong>Duration:</strong> 30–45 minute session</li>
+          <li><strong>Includes:</strong> personal guidance, and 5 high-resolution, professionally edited digital images of your choice</li>
         </ul>
         <a href="#contact" class="cta">Reach out</a>
       </div>
 
       <div class="offer-card">
-        <div class="title">Portrait</div>
-        <div class="subtitle">you, simply you</div>
-        <div class="price-label">from</div>
-        <div class="price"><span class="cur">€</span>280</div>
-        <div class="duration">one hour, one light</div>
+        <div class="title">The Golden Hour Story</div>
+        <div class="subtitle">a relaxed, soulful experience to tell your story during the most magical hour of the day</div>
+        <div class="price-label">Investment</div>
+        <div class="price"><span class="cur">€</span>325</div>
         <div class="divider-line"></div>
         <ul>
-          <li>1 hour shoot</li>
-          <li>20+ edited photos</li>
-          <li>private online gallery</li>
-          <li>two retouched favourites</li>
+          <li><strong>Location:</strong> one location in Lagos, Algarve</li>
+          <li><strong>Duration:</strong> 60–90 minute session during Golden Hour</li>
+          <li><strong>Includes:</strong>
+            <ul>
+              <li>my digital Styling &amp; Outfit Guide to help you prepare</li>
+              <li>a calm, unhurried experience with plenty of time for authentic moments</li>
+              <li>15 high-resolution, professionally edited digital images of your choice</li>
+            </ul>
+          </li>
         </ul>
         <a href="#contact" class="cta">Reach out</a>
       </div>
 
       <div class="offer-card">
-        <div class="title">Personal Branding</div>
-        <div class="subtitle">your story, in images</div>
-        <div class="price-label">from</div>
-        <div class="price"><span class="cur">€</span>480</div>
-        <div class="duration">a half-day, your world</div>
+        <div class="title">The Whole Story</div>
+        <div class="subtitle">the ultimate all-inclusive experience — no need to choose; you receive your complete story</div>
+        <div class="price-label">Investment</div>
+        <div class="price"><span class="cur">€</span>495</div>
         <div class="divider-line"></div>
         <ul>
-          <li>up to 3 hour shoot, multiple looks</li>
-          <li>40+ edited photos</li>
-          <li>private online gallery</li>
-          <li>usage rights for web &amp; social</li>
+          <li><strong>Location:</strong> Lagos or Praia da Luz</li>
+          <li><strong>Duration:</strong> up to 90 minutes, with time for a location or outfit change</li>
+          <li><strong>Includes:</strong>
+            <ul>
+              <li>my digital Styling Guide in PDF</li>
+              <li>all usable images (25+), professionally edited in high resolution (curated by the photographer)</li>
+              <li>a beautiful, custom-made keepsake booklet with 5 of your favourite prints, delivered to your home</li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#contact" class="cta">Reach out</a>
+      </div>
+
+      <div class="offer-card">
+        <div class="title">Sunrise Magic</div>
+        <div class="subtitle">early bird gets the quiet beach</div>
+        <div class="price-label">Investment</div>
+        <div class="price"><span class="cur">€</span>375</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li><strong>Location:</strong> Lagos or Praia da Luz</li>
+          <li><strong>Duration:</strong> up to 60 minutes, including one quick outfit change</li>
+          <li><strong>Includes:</strong>
+            <ul>
+              <li>my digital Styling Guide in PDF</li>
+              <li>10 images, to be selected by you in an online gallery</li>
+            </ul>
+          </li>
         </ul>
         <a href="#contact" class="cta">Reach out</a>
       </div>
 
     </div>
-
-    <p class="offers-note">All packages include travel within 30&thinsp;km.  Custom shoots &amp; larger groups on request.</p>
   </section>
 
-  <!-- THE ARCHIVE ─────────────────────────────── -->
+  <!-- ARCHIVE ─────────────────────────────────── -->
   <section id="work">
-    <h2 class="section-title">The Archive</h2>
+    <h2 class="section-title">Archive</h2>
     <p class="section-sub">A curated collection of my previous work</p>
 
     <div class="archive" id="archive" aria-roledescription="image carousel" aria-label="Photography archive">
       <div class="archive-stage">
-        <img class="archive-img active" src="images/work/01.jpg" alt="Photograph 1" loading="eager">
-        <img class="archive-img"        src="images/work/02.jpg" alt="Photograph 2" loading="lazy">
-        <img class="archive-img"        src="images/work/03.jpg" alt="Photograph 3" loading="lazy">
-        <img class="archive-img"        src="images/work/04.jpg" alt="Photograph 4" loading="lazy">
-        <img class="archive-img"        src="images/work/05.jpg" alt="Photograph 5" loading="lazy">
-        <img class="archive-img"        src="images/work/06.jpg" alt="Photograph 6" loading="lazy">
-        <img class="archive-img"        src="images/work/07.jpg" alt="Photograph 7" loading="lazy">
-        <img class="archive-img"        src="images/work/08.jpg" alt="Photograph 8" loading="lazy">
+        <img class="archive-img active" src="images/work/01.jpg" alt="Photograph 1"  loading="eager">
+        <img class="archive-img"        src="images/work/02.jpg" alt="Photograph 2"  loading="lazy">
+        <img class="archive-img"        src="images/work/03.jpg" alt="Photograph 3"  loading="lazy">
+        <img class="archive-img"        src="images/work/04.jpg" alt="Photograph 4"  loading="lazy">
+        <img class="archive-img"        src="images/work/05.jpg" alt="Photograph 5"  loading="lazy">
+        <img class="archive-img"        src="images/work/06.jpg" alt="Photograph 6"  loading="lazy">
+        <img class="archive-img"        src="images/work/07.jpg" alt="Photograph 7"  loading="lazy">
+        <img class="archive-img"        src="images/work/08.jpg" alt="Photograph 8"  loading="lazy">
+        <img class="archive-img"        src="images/work/09.jpg" alt="Photograph 9"  loading="lazy">
+        <img class="archive-img"        src="images/work/10.jpg" alt="Photograph 10" loading="lazy">
+        <img class="archive-img"        src="images/work/11.jpg" alt="Photograph 11" loading="lazy">
+        <img class="archive-img"        src="images/work/12.jpg" alt="Photograph 12" loading="lazy">
+        <img class="archive-img"        src="images/work/13.jpg" alt="Photograph 13" loading="lazy">
 
         <button class="archive-arrow prev" aria-label="Previous photograph">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg>
@@ -938,48 +995,77 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg>
         </button>
       </div>
-      <div class="archive-counter" aria-live="polite" aria-atomic="true"><span id="archIdx">1</span> / <span id="archTot">8</span></div>
+      <div class="archive-counter" aria-live="polite" aria-atomic="true"><span id="archIdx">1</span> / <span id="archTot">13</span></div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS ───────────────────────────── -->
+  <!-- NOTES ──────────────────────────────────── -->
   <section id="testimonials">
-    <h2 class="section-title">Kind Words</h2>
-    <p class="section-sub">from past clients</p>
+    <h2 class="section-title">Notes</h2>
+    <p class="section-sub">words from those who came before</p>
 
     <div class="testimonials-grid">
 
       <div class="testimonial">
         <blockquote>
-          Esther has a way of making you forget the camera is even there.
-          Looking at the photos afterwards felt like opening a quiet little
-          window back to that afternoon.
+          We had such a beautiful pregnancy photoshoot on the beach today with Esther.
+          She made us feel completely comfortable and captured the most special moments so naturally.
+          The atmosphere was relaxed, fun, and full of warmth.
+          We can't wait to see the final photos — highly recommended! <span aria-hidden="true">🌅🤍</span>
         </blockquote>
         <div class="divider-sm"></div>
-        <div class="name">Lena &amp; Marco</div>
-        <div class="meta">Family shoot · 2025</div>
+        <div class="name">K &amp; S</div>
+        <div class="meta">Sunrise Maternity Photoshoot · Praia da Luz</div>
       </div>
 
       <div class="testimonial">
         <blockquote>
-          I was so nervous about a pregnancy shoot.
-          Esther made it feel like a slow walk with a friend.
-          Every photo looks like us at our softest.
+          The session with Esther was just… real. No fake filters or smiles,
+          no forcing a pose, no "look good" stress. It felt like a hangout with a good friend,
+          and it captured genuine and real images that reflected reality in its beautiful imperfection.
         </blockquote>
         <div class="divider-sm"></div>
-        <div class="name">Anna</div>
-        <div class="meta">Pregnancy · 2025</div>
+        <div class="name">Tanya</div>
+        <div class="meta">Personal Branding Photoshoot · Lagos</div>
       </div>
 
       <div class="testimonial">
         <blockquote>
-          I finally have photos for my website that feel like me —
-          not a stiff headshot. Warm, honest, alive.
-          I keep sending people back to these images.
+          I had the pleasure to take some pictures with Esther and it was such a great experience!
+          She made me feel comfortable and happy to be there. The pictures themselves turned out very pretty
+          and she caught the very essential of myself without forcing anything or being intrusive.
+          I will 100% recommend Esther as your next photographer — you won't regret your choice!
         </blockquote>
         <div class="divider-sm"></div>
-        <div class="name">Clara R.</div>
-        <div class="meta">Personal Branding · 2026</div>
+        <div class="name">Giulia</div>
+        <div class="meta">Sunrise Photoshoot · Praia Dona Ana</div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote>
+          A beautiful day filled with precious memories was captured so wonderfully by Esther.
+          I still regularly look back at the photos from our wedding with great admiration for all the
+          little details that would normally fade from memory over time, but have now been immortalized
+          through her visible passion and keen eye for what she captures. She delivered an incredibly
+          beautiful and carefully curated collection of photos for us!
+        </blockquote>
+        <div class="divider-sm"></div>
+        <div class="name">K &amp; B</div>
+        <div class="meta">Wedding Day · The Netherlands</div>
+      </div>
+
+      <div class="testimonial">
+        <blockquote>
+          For my very first photoshoot, I immediately felt at ease. The atmosphere was warm, relaxed
+          and enjoyable, and Esther truly took the time to listen to what I had in mind.
+          Thanks to our lovely conversations throughout the session, I almost forgot I was standing
+          in front of a camera, which resulted in beautiful, natural photographs.
+          Esther's genuine involvement, personal approach and eye for what suits you make all the difference.
+          That is exactly what she stands for. Highly recommended!
+        </blockquote>
+        <div class="divider-sm"></div>
+        <div class="name">Evelien</div>
+        <div class="meta">Portraits · Lagos</div>
       </div>
 
     </div>

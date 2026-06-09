@@ -8,6 +8,8 @@ content-needed.pdf
 # (web-optimized copies live in ./images/ and are committed)
 content/
 lighthouse reports/
+wetransfer_*/
+Adjustments*.pdf
 
 # OS / editor noise
 .DS_Store
