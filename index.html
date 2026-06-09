@@ -323,6 +323,26 @@
   }
   .hero-slide.active{opacity:1}
 
+  /* Portrait-orientation photos: show the whole photo (no crop) on a soft blurred backdrop made from the same image */
+  .hero-slide.portrait{background-image:none;overflow:hidden}
+  .hero-slide.portrait::before,
+  .hero-slide.portrait::after{
+    content:'';
+    position:absolute;inset:0;
+    background-image:var(--photo);
+    background-repeat:no-repeat;
+  }
+  .hero-slide.portrait::before{
+    background-size:cover;
+    background-position:center;
+    filter:blur(40px);
+    transform:scale(1.15);
+  }
+  .hero-slide.portrait::after{
+    background-size:contain;
+    background-position:center;
+  }
+
   .hero::after{
     content:'';position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(to bottom,
@@ -851,7 +871,7 @@
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <div class="hero-slide active" style="background-image:url('images/hero/01.jpg'); background-position:55% 65%" role="img" aria-label="Featured photograph 1 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/02.jpg'); background-position:45% 35%" role="img" aria-label="Featured photograph 2 of 5"></div>
-    <div class="hero-slide"        style="background-image:url('images/hero/03.jpg'); background-position:50% 50%" role="img" aria-label="Featured photograph 3 of 5"></div>
+    <div class="hero-slide portrait" style="--photo:url('images/hero/03.jpg')" role="img" aria-label="Featured photograph 3 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/04.jpg'); background-position:42% 42%" role="img" aria-label="Featured photograph 4 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/05.jpg'); background-position:50% 50%" role="img" aria-label="Featured photograph 5 of 5"></div>
 
