@@ -77,10 +77,8 @@
     --ink:#3e4a3a;          /* deep moss / sage — primary text & accents */
     --ink-soft:#566249;     /* softer sage — secondary text (WCAG AA on every bg) */
     --cream:#f6f1e8;        /* warm cream — main background */
-    --cream-warm:#ece4d5;   /* warmer beige — featured accent */
-    --sage-mist:#dfe6d5;    /* pale sage tint — section backgrounds */
-    --moss-deep:#3d4a35;    /* dark moss — footer & dramatic accents */
-    --moss-deep-soft:#6f7a65;/* softer moss on dark bg */
+    --cream-warm:#ece4d5;   /* warmer beige — About panel */
+    --moss-deep:#3d4a35;    /* dark moss — footer */
     --moss-accent:#2c3826;  /* deepest moss — hover boxes, button fills */
     --ink-rgb:62,74,58;     /* rgb of --ink for rgba() */
   }
@@ -423,15 +421,6 @@
     display:flex;flex-direction:column;
     text-align:center;
   }
-  .offer-card.featured{
-    background:transparent;
-    border:none;
-  }
-  .offer-card .ribbon{
-    position:absolute;top:14px;left:50%;transform:translateX(-50%);
-    font-family:'Parisienne',cursive;
-    color:var(--ink-soft);font-size:16px;
-  }
   .offer-card .title{
     font-family:'Special Elite','Courier New',monospace;
     letter-spacing:.12em;text-transform:uppercase;
@@ -496,12 +485,6 @@
     transition:background .25s, color .25s;
   }
   .offer-card .cta:hover{background:var(--moss-accent);color:var(--cream);border-color:var(--moss-accent)}
-  .offers-note{
-    text-align:center;
-    margin-top:56px;
-    font-style:italic;color:var(--ink-soft);
-    font-size:17px;
-  }
 
   /* ─── ABOUT ─────────────────────────────────── */
   #about{background:var(--cream-warm)}
@@ -751,8 +734,7 @@
 
   /* Image fallback — warm placeholder shown if a photo fails to load */
   .hero-slide,
-  .about-image,
-  .work-grid .cell{
+  .about-image{
     background-color:var(--cream-warm);
   }
 
@@ -765,9 +747,6 @@
       scroll-behavior:auto !important;
     }
     .hero-slide{transition:opacity 0s}
-    .offer-card:hover{transform:none}
-    .offer-card img,
-    .work-grid .cell img{transition:none}
   }
 
   /* ─── RESPONSIVE ────────────────────────────── */
@@ -794,8 +773,8 @@
     .section-title{font-size:26px;letter-spacing:.12em}
     .section-sub{font-size:22px}
 
-    .offers-grid{grid-template-columns:1fr;gap:20px}
-    .offer-card{padding:40px 28px 32px}
+    .offers-grid{grid-template-columns:1fr;gap:48px}
+    .offer-card{padding:20px 14px}
     .offer-card .price{font-size:46px}
     .offer-card .title{font-size:17px}
     .offer-card .subtitle{font-size:13.5px}
@@ -814,9 +793,8 @@
     .archive-arrow.prev{left:8px}
     .archive-arrow.next{right:8px}
 
-    .testimonials-grid{gap:40px}
-    .testimonial{padding:8px 6px}
-    .testimonial::before{font-size:64px}
+    .testimonials-grid{gap:24px}
+    .testimonial{padding:24px 14px}
     .testimonial blockquote{font-size:14px}
 
     .intro{font-size:23px;padding:80px 24px}
@@ -877,8 +855,6 @@
   <!-- HERO SLIDESHOW ─────────────────────────── -->
   <h1 class="sr-only">Estrela Photography — family, pregnancy, portrait and personal branding photography by Esther</h1>
   <section class="hero" id="home" aria-roledescription="image carousel" aria-label="Featured photographs">
-    <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
-    <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <div class="hero-slide active" style="background-image:url('images/hero/01.jpg'); background-position:55% 65%" role="img" aria-label="Featured photograph 1 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/02.jpg'); background-position:45% 35%" role="img" aria-label="Featured photograph 2 of 5"></div>
@@ -1201,7 +1177,6 @@
       mobileNav.classList.add('open');
       mobileNav.setAttribute('aria-hidden', 'false');
       document.body.classList.add('menu-open');
-      nav.classList.remove('is-hidden');     // make sure nav is visible while menu is open
     };
     const closeMenu = () => {
       navToggle.setAttribute('aria-expanded', 'false');

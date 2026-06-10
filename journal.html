@@ -25,7 +25,6 @@
     --ink-soft:#566249;
     --cream:#f6f1e8;
     --cream-warm:#ece4d5;
-    --sage-mist:#dfe6d5;
     --moss-deep:#3d4a35;
     --moss-accent:#2c3826;
     --ink-rgb:62,74,58;
@@ -52,7 +51,6 @@
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
   }
-  nav.main.is-hidden{transform:translateY(-100%)}
   nav.main > *{pointer-events:auto}
   .nav-group{
     display:flex;gap:28px;
@@ -512,7 +510,6 @@
       mobileNav.classList.add('open');
       mobileNav.setAttribute('aria-hidden', 'false');
       document.body.classList.add('menu-open');
-      nav.classList.remove('is-hidden');
     };
     const closeMenu = () => {
       navToggle.setAttribute('aria-expanded', 'false');
