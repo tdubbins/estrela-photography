@@ -405,6 +405,11 @@
     letter-spacing:.01em;
   }
 
+  /* ─── SESSIONS (dark moss panel, cream pricing cards) ─ */
+  #offers{background:var(--moss-deep);color:var(--cream)}
+  #offers .section-title{color:var(--cream)}
+  #offers .section-sub{color:var(--cream);opacity:.85}
+
   /* ─── OFFERS / PRICING ─────────────────────── */
   .offers-grid{
     display:grid;
@@ -415,7 +420,7 @@
   .offer-card{
     position:relative;
     background:#fdfbf6;
-    border:1px solid rgba(var(--ink-rgb),.22);
+    border:1px solid rgba(255,255,255,.18);
     padding:48px 36px 36px;
     display:flex;flex-direction:column;
     text-align:center;
@@ -423,8 +428,8 @@
   }
   .offer-card:hover{
     transform:translateY(-4px);
-    box-shadow:0 20px 60px -20px rgba(var(--ink-rgb),.32);
-    border-color:var(--moss-deep);
+    box-shadow:0 24px 64px -20px rgba(0,0,0,.55);
+    border-color:rgba(255,255,255,.4);
   }
   .offer-card.featured{
     background:var(--cream-warm);
@@ -508,6 +513,7 @@
 
   /* ─── ABOUT ─────────────────────────────────── */
   #about{background:var(--cream-warm)}
+  #about .section-title{margin-bottom:64px}
   .about{
     display:grid;grid-template-columns:1fr 1fr;
     gap:80px;align-items:center;
@@ -607,36 +613,49 @@
     color:var(--ink-soft);
   }
 
-  /* ─── NOTES (testimonials, deeper olive panel) ─ */
-  /* Notes uses a deeper, slightly olive-tinted green so it's visually
-     distinct from the footer's moss-deep — same dark-green family,
-     different mood. Notes feels heavier; the footer below feels like an exhale. */
-  #testimonials{background:#2c3a25;color:var(--cream)}
-  #testimonials .section-title{color:var(--cream)}
-  #testimonials .section-sub{color:var(--cream);opacity:.85}
+  /* ─── NOTES (cream stage, dark moss quote cards) ─ */
+  #testimonials{background:var(--cream)}
   .testimonials-grid{
     display:flex;flex-direction:column;
-    gap:56px;
-    max-width:720px;margin:0 auto;
+    gap:32px;
+    max-width:740px;margin:0 auto;
   }
+  /* Each testimonial is its own dark moss "quote card" — like a vintage label
+     stamped onto the cream page. Lifts on hover for a subtle interaction. */
   .testimonial{
     position:relative;
     text-align:center;
-    padding:8px 16px;
+    padding:48px 36px 36px;
+    background:var(--moss-deep);
+    color:var(--cream);
+    box-shadow:0 18px 40px -22px rgba(var(--ink-rgb),.45);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .testimonial:hover{
+    transform:translateY(-3px);
+    box-shadow:0 26px 56px -24px rgba(var(--ink-rgb),.55);
+  }
+  /* Subtle inner cream frame echoes the voucher card aesthetic */
+  .testimonial::after{
+    content:'';
+    position:absolute;inset:10px;
+    border:1px solid rgba(255,255,255,.12);
+    pointer-events:none;
   }
   .testimonial::before{
     content:'“';
     display:block;
     font-family:'Cormorant Garamond',serif;
-    font-size:84px;line-height:.6;
+    font-size:74px;line-height:.6;
     color:var(--cream);opacity:.35;
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
   .testimonial blockquote{
     font-family:'Special Elite','Courier New',monospace;
-    font-size:15px;line-height:1.85;
+    font-size:15px;line-height:1.9;
     color:var(--cream);
-    margin-bottom:22px;
+    margin-bottom:20px;
+    position:relative;
   }
   .testimonial .divider-sm{
     width:28px;height:1px;
@@ -668,7 +687,7 @@
   footer::before{
     content:'';
     position:absolute;top:0;left:50%;transform:translateX(-50%);
-    width:120px;height:1px;background:var(--cream);opacity:.45;
+    width:64px;height:1px;background:var(--cream);opacity:.35;
   }
   footer .logo{
     color:var(--cream);text-shadow:none;
@@ -908,6 +927,7 @@
 
   <!-- ABOUT ──────────────────────────────────── -->
   <section id="about">
+    <h2 class="section-title">About</h2>
     <div class="about">
       <div class="about-image" style="background-image:url('images/about/esther.jpg')" role="img" aria-label="Portrait of Esther"></div>
       <div class="about-text">
