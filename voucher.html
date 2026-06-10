@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Voucher · Estrela Photography</title>
+<meta name="description" content="A gift voucher from Estrela Photography — the gift of being seen.">
+<meta name="theme-color" content="#3d4a35">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- TEMPORARY: hide site from search engines while content is still placeholder. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=allura:400|cormorant-garamond:300,300i,400|italiana:400|parisienne:400|special-elite:400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#3e4a3a;
+    --ink-soft:#566249;
+    --cream:#f6f1e8;
+    --cream-warm:#ece4d5;
+    --sage-mist:#dfe6d5;
+    --moss-deep:#3d4a35;
+    --moss-accent:#2c3826;
+    --ink-rgb:62,74,58;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+
+  /* ─── NAV (cream, dark text — same as journal) ─ */
+  nav.main{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:28px 56px;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    pointer-events:none;
+    background:linear-gradient(to bottom,rgba(246,241,232,.94) 0%,rgba(246,241,232,.7) 70%,rgba(246,241,232,0) 100%);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  nav.main > *{pointer-events:auto}
+  .nav-group{
+    display:flex;gap:28px;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;font-size:13px;text-transform:uppercase;
+  }
+  .nav-group.left{justify-content:flex-end;padding-right:36px}
+  .nav-group.right{justify-content:flex-start;padding-left:36px}
+  .nav-group a{
+    color:var(--ink);text-decoration:none;
+    padding:6px 12px;border-radius:2px;
+    transition:background .25s, color .25s;
+  }
+  .nav-group a:hover{background:var(--moss-accent);color:var(--cream)}
+  .logo{text-align:center;color:var(--ink);line-height:.95;text-decoration:none}
+  .logo .script{font-family:'Parisienne',cursive;font-size:38px;display:block;margin-bottom:-4px;color:var(--ink)}
+  .logo .serif{font-family:'Italiana',serif;font-size:16px;letter-spacing:.42em;padding-left:.42em;display:block;color:var(--ink)}
+  .logo .script-sm{font-family:'Parisienne',cursive;font-size:15px;display:block;margin-top:-2px;opacity:.85;color:var(--ink)}
+
+  /* ─── NAV "MORE" DROPDOWN ─────────────────── */
+  .nav-more{position:relative;display:inline-block}
+  .nav-more-toggle{
+    background:none;border:none;
+    padding:6px 12px;border-radius:2px;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;font-size:13px;
+    text-transform:uppercase;
+    color:var(--ink);cursor:pointer;
+    transition:background .25s, color .25s;
+  }
+  .nav-more-toggle:hover{background:var(--moss-accent);color:var(--cream)}
+  .nav-more-toggle .dot{margin-left:.55em;font-size:1em;display:inline-block;transition:transform .25s ease}
+  .nav-more-toggle[aria-expanded="true"] .dot{transform:rotate(180deg)}
+  .nav-more-menu{
+    position:absolute;top:calc(100% + 16px);right:0;min-width:170px;
+    background:#fff;padding:18px 28px;
+    display:flex;flex-direction:column;gap:14px;
+    box-shadow:0 14px 40px -14px rgba(var(--ink-rgb),.35);
+    border:1px solid rgba(var(--ink-rgb),.1);
+    opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
+  }
+  .nav-more.open .nav-more-menu{
+    opacity:1;visibility:visible;transform:none;
+    transition:opacity .25s ease, transform .25s ease, visibility 0s;
+  }
+  .nav-more-menu a{
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.14em;text-transform:uppercase;
+    font-size:13px;color:var(--ink);text-decoration:none;
+    padding:6px 10px;margin:0 -10px;border-radius:2px;
+    transition:background .25s, color .25s;
+  }
+  .nav-more-menu a:hover{background:var(--moss-accent);color:var(--cream)}
+  .nav-more-menu a[aria-current="page"]{border-bottom:1px solid var(--ink-soft);align-self:flex-start;padding-bottom:2px}
+
+  /* ─── HAMBURGER + MOBILE NAV ───────────────── */
+  .nav-toggle{
+    display:none;position:fixed;
+    top:max(14px, env(safe-area-inset-top));right:14px;
+    width:44px;height:44px;background:none;border:none;padding:10px;cursor:pointer;z-index:200;
+  }
+  .nav-toggle span{
+    display:block;height:2px;width:24px;margin:5px auto;
+    background:var(--ink);border-radius:2px;
+    transition:transform .3s ease, opacity .2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-nav{
+    position:fixed;inset:0;z-index:150;
+    background:var(--cream);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:80px 24px max(40px, env(safe-area-inset-bottom));
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+  }
+  .mobile-nav.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease, transform .35s ease, visibility 0s}
+  .mobile-nav-mark{font-family:'Parisienne',cursive;font-size:38px;color:var(--ink-soft);margin-bottom:18px}
+  .mobile-nav ul{list-style:none;padding:0;margin:0;text-align:center}
+  .mobile-nav a{
+    display:inline-block;font-family:'Special Elite','Courier New',monospace;
+    font-size:18px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;
+    color:var(--ink);padding:12px 22px;border-radius:2px;
+    transition:background .25s, color .25s;
+  }
+  .mobile-nav a:hover{background:var(--moss-accent);color:var(--cream)}
+  body.menu-open{overflow:hidden}
+  @media (min-width:901px){.mobile-nav,.nav-toggle{display:none !important}}
+
+  /* ─── PAGE HEADER ────────────────────────── */
+  .page-head{
+    text-align:center;
+    padding:160px 24px 24px;
+  }
+  .page-head h1{
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:42px;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:400;
+    padding-left:.16em;
+    color:var(--moss-deep);
+  }
+  .page-head .sub{
+    font-family:'Parisienne',cursive;
+    font-size:28px;color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  /* ─── VOUCHER CARD ────────────────────────── */
+  .voucher-wrap{
+    max-width:900px;margin:0 auto;
+    padding:40px 24px 100px;
+    text-align:center;
+  }
+  .voucher-intro{
+    max-width:560px;margin:0 auto 56px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:16px;line-height:1.85;
+    color:var(--ink);
+  }
+  .voucher-card{
+    position:relative;
+    margin:0 auto;
+    max-width:560px;
+    aspect-ratio:16/10;
+    background:var(--cream-warm);
+    border:1px solid rgba(var(--ink-rgb),.25);
+    box-shadow:0 30px 70px -30px rgba(var(--ink-rgb),.3);
+    padding:54px 48px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    overflow:hidden;
+  }
+  .voucher-card::before{
+    content:'';
+    position:absolute;inset:14px;
+    border:1px solid rgba(var(--ink-rgb),.18);
+    pointer-events:none;
+  }
+  .voucher-card .v-label{
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:13px;letter-spacing:.4em;
+    text-transform:uppercase;
+    color:var(--moss-deep);
+    padding-left:.4em;
+  }
+  .voucher-card .v-mark{
+    text-align:center;
+  }
+  .voucher-card .v-mark .script{
+    font-family:'Parisienne',cursive;
+    font-size:54px;line-height:1;
+    color:var(--moss-deep);
+    display:block;
+  }
+  .voucher-card .v-mark .serif{
+    font-family:'Italiana',serif;
+    font-size:14px;letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--moss-deep);
+    padding-left:.42em;
+    margin-top:4px;
+  }
+  .voucher-card .v-foot{
+    font-family:'Special Elite','Courier New',monospace;
+    font-style:italic;font-size:13px;
+    color:var(--ink-soft);
+    margin-top:auto;
+  }
+  .voucher-card .v-tag{
+    position:absolute;
+    top:54px;right:54px;
+    font-family:'Parisienne',cursive;
+    font-size:24px;color:var(--ink-soft);
+  }
+
+  .voucher-foot{
+    margin-top:56px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:14px;line-height:1.85;
+    color:var(--ink-soft);
+    max-width:520px;margin-left:auto;margin-right:auto;
+  }
+
+  .voucher-cta{
+    display:inline-block;
+    margin-top:32px;
+    font-family:'Special Elite','Courier New',monospace;
+    text-transform:uppercase;
+    letter-spacing:.18em;padding-left:.18em;
+    font-size:12px;
+    color:var(--ink);text-decoration:none;
+    border:1px solid var(--moss-deep);
+    padding:14px 30px 14px calc(30px + .18em);
+    transition:background .25s, color .25s;
+  }
+  .voucher-cta:hover{background:var(--moss-accent);color:var(--cream);border-color:var(--moss-accent)}
+
+  /* Swirly E */
+  .swirl-e{
+    font-family:'Allura',cursive;font-weight:400;
+    font-size:1.7em;line-height:.55;
+    vertical-align:-0.18em;display:inline-block;margin-right:-0.05em;
+  }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer{
+    background:var(--moss-deep);color:var(--cream);
+    padding:72px 48px max(36px, calc(env(safe-area-inset-bottom) + 20px));
+    text-align:center;position:relative;overflow:hidden;
+  }
+  footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:1px;background:var(--cream);opacity:.35}
+  footer .logo{color:var(--cream);text-shadow:none;display:inline-block}
+  footer .logo .script{color:var(--cream);font-size:42px}
+  footer .logo .serif{color:var(--cream);font-size:17px;opacity:.9}
+  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:16px}
+  .footer-invite{font-family:'Parisienne',cursive;font-size:28px;margin-top:28px;color:var(--cream)}
+  .footer-contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:880px;margin:44px auto 0;text-align:center}
+  .footer-contact-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .footer-contact-item .label{font-family:'Italiana',serif;letter-spacing:.4em;text-transform:uppercase;font-size:11px;padding-left:.4em;opacity:.7;color:var(--cream)}
+  .footer-contact-item a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:19px;color:var(--cream);text-decoration:none;transition:opacity .3s}
+  .footer-contact-item a:hover{opacity:.7}
+  .footer-divider{width:32px;height:1px;background:var(--cream);opacity:.3;margin:48px auto 18px}
+  .footer-meta{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;font-weight:300;color:var(--cream);opacity:.65;letter-spacing:.04em;margin-bottom:6px}
+  .copy{font-size:12px;color:var(--cream);opacity:.5;font-style:italic;letter-spacing:.05em}
+
+  /* ─── A11Y + REDUCED MOTION ─────────────── */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+  nav.main a:focus-visible{outline-color:var(--ink)}
+  footer a:focus-visible{outline-color:var(--cream)}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width:900px){
+    nav.main{grid-template-columns:1fr;justify-items:center;padding:18px 20px;gap:0}
+    .nav-group{display:none}
+    .nav-toggle{display:block}
+    .logo .script{font-size:30px}
+    .logo .serif{font-size:13px}
+    .logo .script-sm{font-size:14px}
+
+    .page-head{padding:120px 20px 16px}
+    .page-head h1{font-size:30px;letter-spacing:.13em}
+    .page-head .sub{font-size:24px}
+
+    .voucher-wrap{padding:24px 18px 64px}
+    .voucher-card{padding:36px 26px}
+    .voucher-card::before{inset:10px}
+    .voucher-card .v-mark .script{font-size:42px}
+    .voucher-card .v-tag{top:30px;right:30px;font-size:20px}
+
+    footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
+    footer .logo .script{font-size:36px}
+    footer .logo .serif{font-size:15px}
+    footer .logo .script-sm{font-size:14px}
+    .footer-invite{font-size:24px;margin-top:22px}
+    .footer-contacts{grid-template-columns:1fr;gap:22px;margin-top:36px}
+    .footer-contact-item a{font-size:18px}
+    .footer-divider{margin:40px auto 18px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAVIGATION ─────────────────────────── -->
+  <nav class="main">
+    <div class="nav-group left">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about"><span class="swirl-e">E</span>sther</a>
+      <a href="index.html#offers">Sessions</a>
+    </div>
+    <a href="index.html" class="logo">
+      <span class="script">estrela</span>
+      <span class="serif">photography</span>
+      <span class="script-sm">by esther</span>
+    </a>
+    <div class="nav-group right">
+      <a href="index.html#work">Archive</a>
+      <a href="index.html#testimonials">Notes</a>
+      <a href="index.html#contact">Connect</a>
+      <div class="nav-more">
+        <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
+        <div class="nav-more-menu" id="navMoreMenu" role="menu">
+          <a href="journal.html" role="menuitem">Journal</a>
+          <a href="voucher.html" role="menuitem" aria-current="page">Voucher</a>
+          <a href="gallery.html" role="menuitem">Gallery</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav-mark">estrela</div>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">Esther</a></li>
+      <li><a href="index.html#offers">Sessions</a></li>
+      <li><a href="index.html#work">Archive</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="index.html#testimonials">Notes</a></li>
+      <li><a href="index.html#contact">Connect</a></li>
+      <li><a href="voucher.html">Voucher</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HEADER ───────────────────────── -->
+  <header class="page-head">
+    <h1>Voucher</h1>
+    <div class="sub">the gift of being seen</div>
+  </header>
+
+  <!-- VOUCHER CARD ──────────────────────── -->
+  <main class="voucher-wrap">
+    <p class="voucher-intro">
+      Give someone you love a session with me. A voucher in any amount — toward
+      a package they already have in mind, or one we'll design together.
+    </p>
+
+    <div class="voucher-card" role="img" aria-label="Estrela Photography gift voucher">
+      <div class="v-label">Gift Voucher</div>
+      <div class="v-tag">no. 001</div>
+      <div class="v-mark">
+        <span class="script">estrela</span>
+        <span class="serif">photography</span>
+      </div>
+      <div class="v-foot">For a photography session of your choosing  ·  redeem at <span class="swirl-e">E</span>strela Photography</div>
+    </div>
+
+    <p class="voucher-foot">
+      Vouchers are valid for one year from the date of purchase
+      and can be redeemed toward any session listed under <a href="index.html#offers">Sessions</a>.
+      Reach out below and I'll send the next steps and a digital voucher addressed to the giftee.
+    </p>
+
+    <a href="index.html#contact" class="voucher-cta">Reach out</a>
+  </main>
+
+  <!-- FOOTER ────────────────────────────── -->
+  <footer id="contact">
+    <a href="index.html" class="logo">
+      <span class="script">estrela</span>
+      <span class="serif">photography</span>
+      <span class="script-sm">by esther</span>
+    </a>
+    <div class="footer-invite">For the moments you'll want to feel again.</div>
+    <div class="footer-contacts">
+      <div class="footer-contact-item">
+        <div class="label">Instagram</div>
+        <a href="https://instagram.com/estrela.photography" target="_blank" rel="noopener">@estrela.photography</a>
+      </div>
+      <div class="footer-contact-item">
+        <div class="label">WhatsApp</div>
+        <a href="https://wa.me/31631192116" target="_blank" rel="noopener">+31 6 31192116</a>
+      </div>
+      <div class="footer-contact-item">
+        <div class="label">Email</div>
+        <a href="mailto:hello@estrelaphotography.com">hello@estrelaphotography.com</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-meta">Based in Lagos, Portugal · available for travel worldwide · replies within 48 hours</div>
+    <div class="copy">© 2026 <span class="swirl-e">E</span>strela Photography</div>
+  </footer>
+
+  <script>
+    // ─── HAMBURGER ───
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const nav = document.querySelector('nav.main');
+    const openMenu = () => {
+      navToggle.setAttribute('aria-expanded','true');
+      navToggle.setAttribute('aria-label','Close menu');
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+    };
+    const closeMenu = () => {
+      navToggle.setAttribute('aria-expanded','false');
+      navToggle.setAttribute('aria-label','Open menu');
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+    };
+    navToggle.addEventListener('click', () => navToggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu());
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+    });
+
+    // ─── MORE DROPDOWN ───
+    const navMore = document.querySelector('.nav-more');
+    const navMoreToggle = navMore.querySelector('.nav-more-toggle');
+    const closeMore = () => { navMore.classList.remove('open'); navMoreToggle.setAttribute('aria-expanded','false'); };
+    navMoreToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = navMore.classList.toggle('open');
+      navMoreToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', e => { if (!navMore.contains(e.target)) closeMore(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMore(); });
+  </script>
+</body>
+</html>

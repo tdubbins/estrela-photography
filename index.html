@@ -45,7 +45,7 @@
 
 <!-- Bunny Fonts — drop-in, GDPR-friendly replacement for Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400|italiana:400|parisienne:400|special-elite:400&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=allura:400|cormorant-garamond:300,300i,400|italiana:400|parisienne:400|special-elite:400&display=swap" rel="stylesheet">
 
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
@@ -530,6 +530,16 @@
     color:var(--moss-deep);
     letter-spacing:.04em;
   }
+  /* Swirly handwritten capital E (mockup for Esther's review) */
+  .swirl-e{
+    font-family:'Allura',cursive;
+    font-weight:400;
+    font-size:1.7em;
+    line-height:.55;
+    vertical-align:-0.18em;
+    display:inline-block;
+    margin-right:-0.05em;
+  }
   .about-text .sig-title{
     font-family:'Special Elite','Courier New',monospace;
     font-style:italic;
@@ -838,7 +848,8 @@
         <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
         <div class="nav-more-menu" id="navMoreMenu" role="menu">
           <a href="journal.html" role="menuitem">Journal</a>
-          <a href="gallery.html" role="menuitem">The Gallery</a>
+          <a href="voucher.html" role="menuitem">Voucher</a>
+          <a href="gallery.html" role="menuitem">Gallery</a>
         </div>
       </div>
     </div>
@@ -861,7 +872,8 @@
       <li><a href="journal.html">Journal</a></li>
       <li><a href="#testimonials">Notes</a></li>
       <li><a href="#contact">Connect</a></li>
-      <li><a href="gallery.html">The Gallery</a></li>
+      <li><a href="voucher.html">Voucher</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
     </ul>
   </div>
 
@@ -873,7 +885,7 @@
     <!-- background-position picks the focal point each photo crops around when portrait/mobile cuts off the sides -->
     <div class="hero-slide active" style="background-image:url('images/hero/01.jpg'); background-position:55% 65%" role="img" aria-label="Featured photograph 1 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/02.jpg'); background-position:45% 35%" role="img" aria-label="Featured photograph 2 of 5"></div>
-    <div class="hero-slide portrait" style="--photo:url('images/hero/03.jpg')" role="img" aria-label="Featured photograph 3 of 5"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/03.jpg'); background-position:50% 38%" role="img" aria-label="Featured photograph 3 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/04.jpg'); background-position:42% 42%" role="img" aria-label="Featured photograph 4 of 5"></div>
     <div class="hero-slide"        style="background-image:url('images/hero/05.jpg'); background-position:50% 50%" role="img" aria-label="Featured photograph 5 of 5"></div>
 
@@ -899,7 +911,7 @@
         <p>To me, photography is art. It is the closest thing to time travel we have; a gentle way to frame your essence in a fast-paced world.</p>
         <p>I am the observer. Ever since I was a child, I subconsciously knew how valuable memories are. Now, out here in the golden light of the Algarve, I create safe, quiet spaces where you can completely forget about the lens.</p>
         <p>When people tell me my photographs are still on their walls years later, that is when my soul smiles.</p>
-        <div class="sig-name">Esther</div>
+        <div class="sig-name"><span class="swirl-e">E</span>sther</div>
         <div class="sig-title">The Observer <span aria-hidden="true">🤍</span></div>
         <div class="long-divider" aria-hidden="true"></div>
       </div>
@@ -1029,7 +1041,7 @@
         <blockquote>
           We had such a beautiful pregnancy photoshoot on the beach today with Esther.
           She made us feel completely comfortable and captured the most special moments so naturally.
-          The atmosphere was relaxed, fun, and full of warmth.
+          <br>The atmosphere was relaxed, fun, and full of warmth.
           We can't wait to see the final photos — highly recommended! <span aria-hidden="true">🌅🤍</span>
         </blockquote>
         <div class="divider-sm"></div>
@@ -1063,10 +1075,10 @@
       <div class="testimonial">
         <blockquote>
           A beautiful day filled with precious memories was captured so wonderfully by Esther.
-          I still regularly look back at the photos from our wedding with great admiration for all the
+          <br>I still regularly look back at the photos from our wedding with great admiration for all the
           little details that would normally fade from memory over time, but have now been immortalized
-          through her visible passion and keen eye for what she captures. She delivered an incredibly
-          beautiful and carefully curated collection of photos for us!
+          through her visible passion and keen eye for what she captures.
+          <br>She delivered an incredibly beautiful and carefully curated collection of photos for us!
         </blockquote>
         <div class="divider-sm"></div>
         <div class="name">K &amp; B</div>
@@ -1117,7 +1129,7 @@
 
     <div class="footer-divider"></div>
     <div class="footer-meta">Based in Lagos, Portugal · available for travel worldwide · replies within 48 hours</div>
-    <div class="copy">© 2026 Estrela Photography · crafted with love</div>
+    <div class="copy">© 2026 <span class="swirl-e">E</span>strela Photography · crafted with love</div>
   </footer>
 
   <script>
