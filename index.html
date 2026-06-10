@@ -607,8 +607,11 @@
     color:var(--ink-soft);
   }
 
-  /* ─── NOTES (testimonials, dark moss panel) ──── */
-  #testimonials{background:var(--moss-deep);color:var(--cream)}
+  /* ─── NOTES (testimonials, deeper olive panel) ─ */
+  /* Notes uses a deeper, slightly olive-tinted green so it's visually
+     distinct from the footer's moss-deep — same dark-green family,
+     different mood. Notes feels heavier; the footer below feels like an exhale. */
+  #testimonials{background:#2c3a25;color:var(--cream)}
   #testimonials .section-title{color:var(--cream)}
   #testimonials .section-sub{color:var(--cream);opacity:.85}
   .testimonials-grid{
@@ -665,7 +668,7 @@
   footer::before{
     content:'';
     position:absolute;top:0;left:50%;transform:translateX(-50%);
-    width:64px;height:1px;background:var(--cream);opacity:.35;
+    width:120px;height:1px;background:var(--cream);opacity:.45;
   }
   footer .logo{
     color:var(--cream);text-shadow:none;
