@@ -597,8 +597,10 @@
     color:var(--ink-soft);
   }
 
-  /* ─── NOTES (testimonials) ───────────────────── */
-  #testimonials{background:var(--sage-mist)}
+  /* ─── NOTES (testimonials, dark moss panel) ──── */
+  #testimonials{background:var(--moss-deep);color:var(--cream)}
+  #testimonials .section-title{color:var(--cream)}
+  #testimonials .section-sub{color:var(--cream);opacity:.85}
   .testimonials-grid{
     display:flex;flex-direction:column;
     gap:56px;
@@ -614,23 +616,23 @@
     display:block;
     font-family:'Cormorant Garamond',serif;
     font-size:84px;line-height:.6;
-    color:var(--moss-deep);opacity:.2;
+    color:var(--cream);opacity:.35;
     margin-bottom:8px;
   }
   .testimonial blockquote{
     font-family:'Special Elite','Courier New',monospace;
     font-size:15px;line-height:1.85;
-    color:var(--ink);
+    color:var(--cream);
     margin-bottom:22px;
   }
   .testimonial .divider-sm{
     width:28px;height:1px;
-    background:var(--moss-deep);opacity:.5;
+    background:var(--cream);opacity:.5;
     margin:0 auto 14px;
   }
   .testimonial .name{
     font-family:'Special Elite','Courier New',monospace;
-    font-size:15px;color:var(--moss-deep);
+    font-size:15px;color:var(--cream);
     letter-spacing:.05em;
     margin-bottom:4px;
   }
@@ -638,7 +640,7 @@
     font-family:'Special Elite','Courier New',monospace;
     font-style:italic;
     font-size:12px;letter-spacing:.04em;
-    color:var(--ink-soft);
+    color:var(--cream);opacity:.7;
   }
 
   /* ─── FOOTER ────────────────────────────────── */
@@ -907,13 +909,12 @@
   <!-- SESSIONS ───────────────────────────────── -->
   <section id="offers">
     <h2 class="section-title">Sessions</h2>
-    <p class="section-sub">find the one that feels like you</p>
 
     <div class="offers-grid">
 
       <div class="offer-card">
         <div class="title">The Essence Session</div>
-        <div class="subtitle">a gentle, focused session — your story in its purest, most minimalist form</div>
+        <div class="subtitle">a gentle, focused session; your story in its purest, most minimalist form</div>
         <div class="price-label">Investment</div>
         <div class="price"><span class="cur">€</span>225</div>
         <div class="divider-line"></div>
@@ -946,6 +947,25 @@
       </div>
 
       <div class="offer-card">
+        <div class="title">Sunrise Magic</div>
+        <div class="subtitle">early bird gets the quiet beach</div>
+        <div class="price-label">Investment</div>
+        <div class="price"><span class="cur">€</span>375</div>
+        <div class="divider-line"></div>
+        <ul>
+          <li><strong>Location:</strong> Lagos or Praia da Luz</li>
+          <li><strong>Duration:</strong> up to 60 minutes, including one quick outfit change</li>
+          <li><strong>Includes:</strong>
+            <ul>
+              <li>my digital Styling Guide in PDF</li>
+              <li>10 images, to be selected by you in an online gallery</li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#contact" class="cta">Reach out</a>
+      </div>
+
+      <div class="offer-card">
         <div class="title">The Whole Story</div>
         <div class="subtitle">the ultimate all-inclusive experience — no need to choose; you receive your complete story</div>
         <div class="price-label">Investment</div>
@@ -959,25 +979,6 @@
               <li>my digital Styling Guide in PDF</li>
               <li>all usable images (25+), professionally edited in high resolution (curated by the photographer)</li>
               <li>a beautiful, custom-made keepsake booklet with 5 of your favourite prints, delivered to your home</li>
-            </ul>
-          </li>
-        </ul>
-        <a href="#contact" class="cta">Reach out</a>
-      </div>
-
-      <div class="offer-card">
-        <div class="title">Sunrise Magic</div>
-        <div class="subtitle">early bird gets the quiet beach</div>
-        <div class="price-label">Investment</div>
-        <div class="price"><span class="cur">€</span>375</div>
-        <div class="divider-line"></div>
-        <ul>
-          <li><strong>Location:</strong> Lagos or Praia da Luz</li>
-          <li><strong>Duration:</strong> up to 60 minutes, including one quick outfit change</li>
-          <li><strong>Includes:</strong>
-            <ul>
-              <li>my digital Styling Guide in PDF</li>
-              <li>10 images, to be selected by you in an online gallery</li>
             </ul>
           </li>
         </ul>
