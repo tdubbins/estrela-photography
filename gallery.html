@@ -22,7 +22,7 @@
 
 <!-- Bunny Fonts — drop-in, GDPR-friendly replacement for Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400|italiana:400|parisienne:400&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=allura:400|cormorant-garamond:300,300i,400|italiana:400|parisienne:400|special-elite:400&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -31,6 +31,7 @@
     --cream:#f6f1e8;
     --cream-warm:#ece4d5;
     --moss-deep:#3d4a35;
+    --moss-accent:#2c3826;  /* deepest moss — hover boxes, button fills */
     --ink-rgb:62,74,58;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -51,12 +52,13 @@
     border-bottom:1px solid rgba(var(--ink-rgb),.1);
   }
   .topbar .back{
-    font-family:'Italiana',serif;
-    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
-    text-decoration:none;color:var(--ink-soft);
-    padding-left:.3em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);
+    padding:6px 12px;border-radius:2px;
+    transition:background .25s ease, color .25s ease;
   }
-  .topbar .back:hover{color:var(--ink)}
+  .topbar .back:hover{background:var(--moss-accent);color:var(--cream)}
   .logo{
     text-align:center;color:var(--ink);text-decoration:none;
     line-height:.95;
@@ -85,10 +87,10 @@
     margin-bottom:8px;
   }
   .access-card h1{
-    font-family:'Italiana',serif;
-    font-size:32px;letter-spacing:.28em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:26px;letter-spacing:.18em;
     text-transform:uppercase;font-weight:400;
-    padding-left:.28em;margin-bottom:24px;
+    padding-left:.18em;margin-bottom:24px;
   }
   .access-card .divider-line{
     width:36px;height:1px;
@@ -102,9 +104,9 @@
   }
   .access-card label{
     display:block;
-    font-family:'Italiana',serif;
-    font-size:11px;letter-spacing:.35em;text-transform:uppercase;
-    color:var(--ink-soft);padding-left:.35em;margin-bottom:14px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-soft);padding-left:.2em;margin-bottom:14px;
   }
   .access-card input{
     width:100%;
@@ -122,15 +124,15 @@
   .access-card input:focus{border-color:var(--ink)}
   .access-card .enter-btn{
     margin-top:36px;display:inline-block;
-    font-family:'Italiana',serif;text-transform:uppercase;
-    letter-spacing:.32em;padding-left:.32em;font-size:12px;
+    font-family:'Special Elite','Courier New',monospace;text-transform:uppercase;
+    letter-spacing:.2em;padding-left:.2em;font-size:12px;
     color:var(--ink);background:transparent;
     border:1px solid var(--ink);
-    padding:14px 36px 14px calc(36px + .32em);
-    cursor:pointer;transition:background .3s,color .3s;
+    padding:14px 36px 14px calc(36px + .2em);
+    cursor:pointer;transition:background .3s,color .3s,border-color .3s;
     font-weight:400;
   }
-  .access-card .enter-btn:hover{background:var(--ink);color:var(--cream)}
+  .access-card .enter-btn:hover{background:var(--moss-accent);color:var(--cream);border-color:var(--moss-accent)}
   .access-card .hint{
     margin-top:28px;
     font-size:13px;color:var(--ink-soft);
@@ -152,10 +154,10 @@
     margin-bottom:6px;
   }
   .gallery-header h1{
-    font-family:'Italiana',serif;
-    font-size:38px;letter-spacing:.26em;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:30px;letter-spacing:.16em;
     text-transform:uppercase;font-weight:400;
-    padding-left:.26em;
+    padding-left:.16em;
   }
   .gallery-header .meta{
     font-family:'Parisienne',cursive;
@@ -184,9 +186,9 @@
     flex-wrap:wrap;gap:16px;
   }
   .action-bar .counter{
-    font-family:'Italiana',serif;
-    letter-spacing:.3em;text-transform:uppercase;
-    font-size:12px;color:var(--ink);padding-left:.3em;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.16em;text-transform:uppercase;
+    font-size:12px;color:var(--ink);padding-left:.16em;
   }
   .action-bar .counter b{
     font-family:'Cormorant Garamond',serif;font-weight:400;
@@ -195,18 +197,18 @@
   }
   .action-bar .actions{display:flex;gap:14px;flex-wrap:wrap}
   .action-bar button{
-    font-family:'Italiana',serif;
-    text-transform:uppercase;letter-spacing:.28em;padding-left:.28em;
+    font-family:'Special Elite','Courier New',monospace;
+    text-transform:uppercase;letter-spacing:.18em;padding-left:.18em;
     font-size:11px;
     background:transparent;border:1px solid var(--ink);
     color:var(--ink);
-    padding:11px 24px 11px calc(24px + .28em);
-    cursor:pointer;transition:background .3s,color .3s,opacity .3s;
+    padding:11px 24px 11px calc(24px + .18em);
+    cursor:pointer;transition:background .3s,color .3s,opacity .3s,border-color .3s;
   }
-  .action-bar button:hover{background:var(--ink);color:var(--cream)}
+  .action-bar button:hover{background:var(--moss-accent);color:var(--cream);border-color:var(--moss-accent)}
   .action-bar button.primary{background:var(--ink);color:var(--cream)}
-  .action-bar button.primary:hover{background:var(--moss-deep)}
-  .action-bar button:disabled{opacity:.3;cursor:not-allowed;background:transparent;color:var(--ink)}
+  .action-bar button.primary:hover{background:var(--moss-accent);border-color:var(--moss-accent)}
+  .action-bar button:disabled{opacity:.3;cursor:not-allowed;background:transparent;color:var(--ink);border-color:var(--ink)}
 
   /* ─── PHOTO GRID ────────────────────────────── */
   .photo-grid{
@@ -287,6 +289,16 @@
     font-size:13px;font-style:italic;
     letter-spacing:.05em;opacity:.6;
   }
+  /* Swirly handwritten capital E (matches index/journal/voucher) */
+  .swirl-e{
+    font-family:'Allura',cursive;
+    font-weight:400;
+    font-size:1.7em;
+    line-height:.55;
+    vertical-align:-0.18em;
+    display:inline-block;
+    margin-right:-0.05em;
+  }
 
   /* ─── LIGHTBOX ──────────────────────────── */
   .lightbox{
@@ -344,8 +356,8 @@
     bottom:32px;left:50%;transform:translateX(-50%);
     padding:12px 26px 12px 22px;
     border-radius:999px;
-    font-family:'Italiana',serif;
-    letter-spacing:.28em;text-transform:uppercase;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.18em;text-transform:uppercase;
     font-size:11px;
     gap:10px;
   }
@@ -359,8 +371,8 @@
   .lb-counter{
     position:fixed;top:32px;left:50%;transform:translateX(-50%);
     color:#fff;opacity:.75;
-    font-family:'Italiana',serif;
-    letter-spacing:.35em;font-size:12px;padding-left:.35em;
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.2em;font-size:12px;padding-left:.2em;
     z-index:210;
   }
 
@@ -380,9 +392,9 @@
     bottom:40px;z-index:100;
     background:var(--moss-deep);color:var(--cream);
     padding:20px 32px;
-    font-family:'Italiana',serif;
-    letter-spacing:.24em;text-transform:uppercase;
-    font-size:12px;padding-left:calc(32px + .24em);
+    font-family:'Special Elite','Courier New',monospace;
+    letter-spacing:.16em;text-transform:uppercase;
+    font-size:12px;padding-left:calc(32px + .16em);
     box-shadow:0 10px 40px -10px rgba(0,0,0,.3);
     transition:transform .4s ease;
   }
@@ -436,10 +448,10 @@
     .logo .serif{font-size:12px}
 
     .access-card{padding:48px 28px 40px}
-    .access-card h1{font-size:24px}
+    .access-card h1{font-size:22px;letter-spacing:.14em;padding-left:.14em}
 
     .gallery-header{padding:60px 22px 28px}
-    .gallery-header h1{font-size:26px;letter-spacing:.22em}
+    .gallery-header h1{font-size:24px;letter-spacing:.14em;padding-left:.14em}
 
     .action-bar{padding:14px 22px}
     .photo-grid{grid-template-columns:repeat(2,1fr);padding:20px;gap:4px}
@@ -514,7 +526,7 @@
         <span class="script">estrela</span>
         <span class="serif">photography</span>
       </a>
-      <div class="copy">© 2026 Estrela Photography</div>
+      <div class="copy">© 2026 <span class="swirl-e">E</span>strela Photography</div>
     </footer>
 
   </div>
