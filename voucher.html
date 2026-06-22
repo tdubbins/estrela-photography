@@ -169,59 +169,78 @@
     font-size:16px;line-height:1.85;
     color:var(--ink);
   }
+  /* Film-frame voucher — aged paper inside a Kodak rebate border */
   .voucher-card{
     position:relative;
     margin:0 auto;
-    max-width:560px;
-    aspect-ratio:16/10;
-    background:var(--cream-warm);
-    border:1px solid rgba(var(--ink-rgb),.25);
-    box-shadow:0 30px 70px -30px rgba(var(--ink-rgb),.3);
-    padding:54px 48px;
-    display:flex;flex-direction:column;justify-content:space-between;
-    overflow:hidden;
+    max-width:640px;
+    background:#191712;                 /* dark film rebate */
+    padding:16px 16px 16px 40px;        /* wider left strip for the markings */
+    box-shadow:0 34px 76px -32px rgba(var(--ink-rgb),.5);
+    text-align:left;
   }
-  .voucher-card::before{
-    content:'';
-    position:absolute;inset:14px;
-    border:1px solid rgba(var(--ink-rgb),.18);
-    pointer-events:none;
+  /* Sprocket markings down the left rebate */
+  .voucher-card .v-film{
+    position:absolute;left:0;top:0;bottom:0;width:40px;
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    padding:16px 0;color:#cdc6b6;pointer-events:none;
   }
-  .voucher-card .v-label{
+  .voucher-card .v-film .tri{color:#c8803c;font-size:11px;line-height:1}
+  .voucher-card .v-film .num{
+    writing-mode:vertical-rl;transform:rotate(180deg);
     font-family:'Special Elite','Courier New',monospace;
-    font-size:13px;letter-spacing:.4em;
-    text-transform:uppercase;
-    color:var(--moss-deep);
-    padding-left:.4em;
+    font-size:12px;letter-spacing:.2em;color:#c8803c;
   }
-  .voucher-card .v-mark{
-    text-align:center;
-  }
-  .voucher-card .v-mark .script{
-    font-family:'Parisienne',cursive;
-    font-size:54px;line-height:1;
-    color:var(--moss-deep);
-    display:block;
-  }
-  .voucher-card .v-mark .serif{
-    font-family:'Italiana',serif;
-    font-size:14px;letter-spacing:.42em;
-    text-transform:uppercase;
-    color:var(--moss-deep);
-    padding-left:.42em;
-    margin-top:4px;
-  }
-  .voucher-card .v-foot{
+  .voucher-card .v-film .stock{
+    writing-mode:vertical-rl;transform:rotate(180deg);
     font-family:'Special Elite','Courier New',monospace;
-    font-style:italic;font-size:13px;
-    color:var(--ink-soft);
-    margin-top:auto;
+    font-size:10px;letter-spacing:.34em;text-transform:uppercase;opacity:.8;
   }
-  .voucher-card .v-tag{
-    position:absolute;
-    top:54px;right:54px;
-    font-family:'Parisienne',cursive;
-    font-size:24px;color:var(--ink-soft);
+  /* Aged paper that holds the voucher itself */
+  .voucher-card .v-paper{
+    background:
+      radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,.5), transparent 60%),
+      radial-gradient(120% 90% at 100% 100%, rgba(120,108,80,.16), transparent 55%),
+      #efe7d5;
+    padding:44px 46px 40px;
+    box-shadow:inset 0 0 60px rgba(120,104,70,.14);
+  }
+  .voucher-card .v-title{
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:clamp(36px,8.5vw,62px);line-height:1;
+    letter-spacing:.22em;text-transform:uppercase;
+    text-align:center;color:#2b2a24;padding-left:.22em;
+  }
+  .voucher-card .v-brand{
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:14px;letter-spacing:.3em;text-transform:uppercase;
+    text-align:center;color:#5c574a;padding-left:.3em;
+    margin-top:12px;
+  }
+  .voucher-card .v-fields{
+    display:flex;gap:40px;align-items:stretch;
+    margin-top:52px;
+  }
+  .voucher-card .v-lines{flex:1;align-self:flex-end}
+  .voucher-card .v-line{
+    display:flex;align-items:flex-end;gap:12px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:#2b2a24;
+  }
+  .voucher-card .v-line + .v-line{margin-top:34px}
+  .voucher-card .v-line i{
+    flex:1;height:1em;
+    background-image:radial-gradient(circle at center, #8a8472 1.1px, transparent 1.6px);
+    background-size:7px 100%;background-repeat:repeat-x;background-position:left bottom;
+  }
+  .voucher-card .v-message{
+    flex:0 0 40%;
+    border:1px solid #4a463b;
+    padding:10px 13px;min-height:150px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    color:#5c574a;
   }
 
   .voucher-foot{
@@ -296,10 +315,14 @@
     .page-head .sub{font-size:24px}
 
     .voucher-wrap{padding:24px 18px 64px}
-    .voucher-card{padding:36px 26px}
-    .voucher-card::before{inset:10px}
-    .voucher-card .v-mark .script{font-size:42px}
-    .voucher-card .v-tag{top:30px;right:30px;font-size:20px}
+    .voucher-card{padding:12px 12px 12px 32px}
+    .voucher-card .v-film{width:32px}
+    .voucher-card .v-paper{padding:32px 24px 28px}
+    .voucher-card .v-title{font-size:34px;letter-spacing:.14em;padding-left:.14em}
+    .voucher-card .v-brand{font-size:11px;letter-spacing:.22em;padding-left:.22em}
+    .voucher-card .v-fields{flex-direction:column;gap:30px;margin-top:40px}
+    .voucher-card .v-lines{align-self:stretch}
+    .voucher-card .v-message{flex:none;align-self:stretch;min-height:120px}
 
     footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
     footer .logo .script{font-size:36px}
@@ -373,14 +396,25 @@
       a package they already have in mind, or one we'll design together.
     </p>
 
-    <div class="voucher-card" role="img" aria-label="Estrela Photography gift voucher">
-      <div class="v-label">Gift Voucher</div>
-      <div class="v-tag">no. 001</div>
-      <div class="v-mark">
-        <span class="script">estrela</span>
-        <span class="serif">photography</span>
+    <div class="voucher-card" aria-label="Estrela Photography gift voucher">
+      <div class="v-film" aria-hidden="true">
+        <span class="tri">&#9660;</span>
+        <span class="num">43</span>
+        <span class="stock">Kodak Portra 400</span>
+        <span class="tri">&#9650;</span>
       </div>
-      <div class="v-foot">For a photography session of your choosing  ·  redeem at <span class="swirl-e">E</span>strela Photography</div>
+      <div class="v-paper">
+        <div class="v-title">Voucher</div>
+        <div class="v-brand">Estrela Photography</div>
+        <div class="v-fields">
+          <div class="v-lines">
+            <div class="v-line"><span>To</span><i></i></div>
+            <div class="v-line"><span>From</span><i></i></div>
+            <div class="v-line"><span>Expiry date</span><i></i></div>
+          </div>
+          <div class="v-message">Message</div>
+        </div>
+      </div>
     </div>
 
     <p class="voucher-foot">
