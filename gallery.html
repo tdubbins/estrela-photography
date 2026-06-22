@@ -60,11 +60,9 @@
   }
   .topbar .back:hover{background:var(--moss-accent);color:var(--cream)}
   .logo{
-    text-align:center;color:var(--ink);text-decoration:none;
-    line-height:.95;
+    display:block;text-decoration:none;line-height:0;
   }
-  .logo .script{font-family:'Parisienne',cursive;font-size:30px;display:block;margin-bottom:-4px}
-  .logo .serif{font-family:'Italiana',serif;font-size:14px;letter-spacing:.42em;padding-left:.42em;display:block}
+  .logo-mark{display:block;width:auto;height:46px}
   .topbar .spacer{width:80px}
 
   /* ─── ACCESS CARD ─────────────────────────── */
@@ -280,10 +278,8 @@
     padding:60px 24px 32px;
     text-align:center;
   }
-  footer .logo .script,
-  footer .logo .serif{color:var(--cream)}
-  footer .logo .script{font-size:32px}
-  footer .logo .serif{font-size:15px;opacity:.9}
+  footer .logo{display:inline-block;text-decoration:none;line-height:0}
+  .footer-logo-img{display:block;width:auto;height:180px}
   footer .copy{
     margin-top:20px;
     font-size:13px;font-style:italic;
@@ -444,8 +440,8 @@
   @media (max-width:900px){
     .topbar{padding:20px 22px}
     .topbar .spacer{display:none}
-    .logo .script{font-size:26px}
-    .logo .serif{font-size:12px}
+    .logo-mark{height:40px}
+    .footer-logo-img{height:140px}
 
     .access-card{padding:48px 28px 40px}
     .access-card h1{font-size:22px;letter-spacing:.14em;padding-left:.14em}
@@ -466,9 +462,8 @@
   <!-- TOP BAR ─────────────────────────────── -->
   <div class="topbar">
     <a href="index.html" class="back">← back to site</a>
-    <a href="index.html" class="logo">
-      <span class="script">estrela</span>
-      <span class="serif">photography</span>
+    <a href="index.html" class="logo" aria-label="Estrela Photography — home">
+      <img class="logo-mark" src="logo-mark.svg" alt="">
     </a>
     <div class="spacer"></div>
   </div>
@@ -522,9 +517,8 @@
     </div>
 
     <footer>
-      <a href="index.html" class="logo">
-        <span class="script">estrela</span>
-        <span class="serif">photography</span>
+      <a href="index.html" class="logo" aria-label="Estrela Photography — home">
+        <img class="footer-logo-img" src="logo.svg" alt="Estrela Photography">
       </a>
       <div class="copy">© 2026 <span class="swirl-e">E</span>strela Photography</div>
     </footer>

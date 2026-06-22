@@ -80,6 +80,7 @@
     --cream-warm:#ece4d5;   /* warmer beige — About panel */
     --moss-deep:#3d4a35;    /* dark moss — footer */
     --moss-accent:#2c3826;  /* deepest moss — hover boxes, button fills */
+    --gold:#94774a;         /* Esther's logo gold/bronze */
     --ink-rgb:62,74,58;     /* rgb of --ink for rgba() */
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -113,11 +114,7 @@
     -webkit-backdrop-filter:blur(8px);
   }
   body.past-hero nav.main .nav-group a,
-  body.past-hero nav.main .nav-more-toggle,
-  body.past-hero nav.main .logo,
-  body.past-hero nav.main .logo .script,
-  body.past-hero nav.main .logo .serif,
-  body.past-hero nav.main .logo .script-sm{
+  body.past-hero nav.main .nav-more-toggle{
     color:var(--ink);
     text-shadow:none;
     transition:color .3s ease;
@@ -156,22 +153,16 @@
   }
 
   .logo{
-    text-align:center;color:#fff;line-height:.95;
-    text-decoration:none;
-    text-shadow:0 2px 24px rgba(0,0,0,.3);
+    display:block;text-decoration:none;line-height:0;
   }
-  .logo .script{
-    font-family:'Parisienne',cursive;
-    font-size:46px;display:block;margin-bottom:-4px;
+  /* Nav E-mark — masked so it can switch colour: white over the hero, gold over cream */
+  .logo-mark{
+    display:block;width:auto;height:56px;
+    filter:brightness(0) invert(1) drop-shadow(0 2px 14px rgba(0,0,0,.45));  /* white over hero */
+    transition:filter .3s ease;
   }
-  .logo .serif{
-    font-family:'Italiana',serif;
-    font-size:20px;letter-spacing:.42em;
-    padding-left:.42em;display:block;
-  }
-  .logo .script-sm{
-    font-family:'Parisienne',cursive;
-    font-size:18px;display:block;margin-top:-2px;opacity:.9;
+  body.past-hero .logo-mark{
+    filter:none;                                                            /* gold over cream */
   }
 
   /* ─── NAV "MORE" DROPDOWN ──────────────────── */
@@ -274,10 +265,9 @@
     transition:opacity .35s ease, transform .35s ease, visibility 0s;
   }
   .mobile-nav-mark{
-    font-family:'Parisienne',cursive;
-    font-size:38px;color:var(--ink-soft);
-    margin-bottom:18px;
+    margin-bottom:22px;line-height:0;
   }
+  .mobile-nav-mark img{display:block;width:84px;height:auto}
   .mobile-nav ul{list-style:none;padding:0;margin:0;text-align:center}
   .mobile-nav li{margin:0}
   .mobile-nav a{
@@ -649,12 +639,9 @@
     width:64px;height:1px;background:var(--cream);opacity:.35;
   }
   footer .logo{
-    color:var(--cream);text-shadow:none;
-    display:inline-block;
+    display:inline-block;text-decoration:none;line-height:0;
   }
-  footer .logo .script{color:var(--cream);font-size:42px}
-  footer .logo .serif{color:var(--cream);font-size:17px;opacity:.9}
-  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:16px}
+  .footer-logo-img{display:block;width:auto;height:190px}
 
   .footer-invite{
     font-family:'Parisienne',cursive;
@@ -764,11 +751,7 @@
     .nav-toggle{display:block}
 
     /* Stronger text-shadow for nav logo over busy hero photos on small screens */
-    nav.main .logo{text-shadow:0 2px 24px rgba(0,0,0,.55)}
-    body.past-hero nav.main .logo{text-shadow:none}
-    .logo .script{font-size:30px}
-    .logo .serif{font-size:13px}
-    .logo .script-sm{font-size:14px}
+    .logo-mark{height:48px}
 
     section{padding:80px 22px}
     .section-title{font-size:26px;letter-spacing:.12em}
@@ -781,9 +764,7 @@
     .offer-card .subtitle{font-size:13.5px}
 
     footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
-    footer .logo .script{font-size:36px}
-    footer .logo .serif{font-size:15px}
-    footer .logo .script-sm{font-size:14px}
+    .footer-logo-img{height:150px}
     .footer-invite{font-size:24px;margin-top:22px}
     .footer-contacts{grid-template-columns:1fr;gap:22px;margin-top:36px}
     .footer-contact-item a{font-size:18px}
@@ -811,10 +792,8 @@
       <a href="#about">Esther</a>
       <a href="#sessions">Sessions</a>
     </div>
-    <a href="#home" class="logo">
-      <span class="script">estrela</span>
-      <span class="serif">photography</span>
-      <span class="script-sm">by esther</span>
+    <a href="#home" class="logo" aria-label="Estrela Photography — home">
+      <img class="logo-mark" src="logo-mark.svg" alt="">
     </a>
     <div class="nav-group right">
       <a href="#archive">Archive</a>
@@ -839,7 +818,7 @@
 
   <!-- Mobile menu overlay — mobile only -->
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-    <div class="mobile-nav-mark">estrela</div>
+    <div class="mobile-nav-mark"><img src="logo-mark.svg" alt="Estrela Photography"></div>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">Esther</a></li>
@@ -1079,10 +1058,8 @@
 
   <!-- FOOTER / CONTACT ──────────────────────── -->
   <footer id="contact">
-    <a href="#home" class="logo">
-      <span class="script">estrela</span>
-      <span class="serif">photography</span>
-      <span class="script-sm">by esther</span>
+    <a href="#home" class="logo" aria-label="Estrela Photography — home">
+      <img class="footer-logo-img" src="logo.svg" alt="Estrela Photography">
     </a>
 
     <div class="footer-invite">For the moments you'll want to feel again.</div>

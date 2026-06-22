@@ -62,10 +62,8 @@
     transition:background .25s, color .25s;
   }
   .nav-group a:hover{background:var(--moss-accent);color:var(--cream)}
-  .logo{text-align:center;color:var(--ink);line-height:.95;text-decoration:none}
-  .logo .script{font-family:'Parisienne',cursive;font-size:38px;display:block;margin-bottom:-4px;color:var(--ink)}
-  .logo .serif{font-family:'Italiana',serif;font-size:16px;letter-spacing:.42em;padding-left:.42em;display:block;color:var(--ink)}
-  .logo .script-sm{font-family:'Parisienne',cursive;font-size:15px;display:block;margin-top:-2px;opacity:.85;color:var(--ink)}
+  .logo{display:block;text-decoration:none;line-height:0}
+  .logo-mark{display:block;width:auto;height:54px}
 
   /* ─── NAV "MORE" DROPDOWN ─────────────────── */
   .nav-more{position:relative;display:inline-block}
@@ -127,7 +125,8 @@
     transition:opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
   }
   .mobile-nav.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease, transform .35s ease, visibility 0s}
-  .mobile-nav-mark{font-family:'Parisienne',cursive;font-size:38px;color:var(--ink-soft);margin-bottom:18px}
+  .mobile-nav-mark{margin-bottom:22px;line-height:0}
+  .mobile-nav-mark img{display:block;width:84px;height:auto}
   .mobile-nav ul{list-style:none;padding:0;margin:0;text-align:center}
   .mobile-nav a{
     display:inline-block;font-family:'Special Elite','Courier New',monospace;
@@ -279,10 +278,8 @@
     text-align:center;position:relative;overflow:hidden;
   }
   footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:1px;background:var(--cream);opacity:.35}
-  footer .logo{color:var(--cream);text-shadow:none;display:inline-block}
-  footer .logo .script{color:var(--cream);font-size:42px}
-  footer .logo .serif{color:var(--cream);font-size:17px;opacity:.9}
-  footer .logo .script-sm{color:var(--cream);opacity:.85;font-size:16px}
+  footer .logo{display:inline-block;text-decoration:none;line-height:0}
+  .footer-logo-img{display:block;width:auto;height:190px}
   .footer-invite{font-family:'Parisienne',cursive;font-size:28px;margin-top:28px;color:var(--cream)}
   .footer-contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:880px;margin:44px auto 0;text-align:center}
   .footer-contact-item{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -306,9 +303,7 @@
     nav.main{grid-template-columns:1fr;justify-items:center;padding:18px 20px;gap:0}
     .nav-group{display:none}
     .nav-toggle{display:block}
-    .logo .script{font-size:30px}
-    .logo .serif{font-size:13px}
-    .logo .script-sm{font-size:14px}
+    .logo-mark{height:48px}
 
     .page-head{padding:120px 20px 16px}
     .page-head h1{font-size:30px;letter-spacing:.13em}
@@ -325,9 +320,7 @@
     .voucher-card .v-message{flex:none;align-self:stretch;min-height:120px}
 
     footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
-    footer .logo .script{font-size:36px}
-    footer .logo .serif{font-size:15px}
-    footer .logo .script-sm{font-size:14px}
+    .footer-logo-img{height:150px}
     .footer-invite{font-size:24px;margin-top:22px}
     .footer-contacts{grid-template-columns:1fr;gap:22px;margin-top:36px}
     .footer-contact-item a{font-size:18px}
@@ -344,10 +337,8 @@
       <a href="index.html#about"><span class="swirl-e">E</span>sther</a>
       <a href="index.html#sessions">Sessions</a>
     </div>
-    <a href="index.html" class="logo">
-      <span class="script">estrela</span>
-      <span class="serif">photography</span>
-      <span class="script-sm">by esther</span>
+    <a href="index.html" class="logo" aria-label="Estrela Photography — home">
+      <img class="logo-mark" src="logo-mark.svg" alt="">
     </a>
     <div class="nav-group right">
       <a href="index.html#archive">Archive</a>
@@ -369,7 +360,7 @@
   </button>
 
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-    <div class="mobile-nav-mark">estrela</div>
+    <div class="mobile-nav-mark"><img src="logo-mark.svg" alt="Estrela Photography"></div>
     <ul>
       <li><a href="index.html#home">Home</a></li>
       <li><a href="index.html#about">Esther</a></li>
@@ -428,10 +419,8 @@
 
   <!-- FOOTER ────────────────────────────── -->
   <footer id="contact">
-    <a href="index.html" class="logo">
-      <span class="script">estrela</span>
-      <span class="serif">photography</span>
-      <span class="script-sm">by esther</span>
+    <a href="index.html" class="logo" aria-label="Estrela Photography — home">
+      <img class="footer-logo-img" src="logo.svg" alt="Estrela Photography">
     </a>
     <div class="footer-invite">For the moments you'll want to feel again.</div>
     <div class="footer-contacts">
