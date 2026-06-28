@@ -542,6 +542,26 @@
     position:relative;
     max-width:1300px;
     margin:0 auto;
+    background:#191712;                 /* Kodak film rebate */
+    padding:32px 20px 46px;
+  }
+  /* sprocket-hole rows along the top & bottom edges */
+  .archive::before,
+  .archive::after{
+    content:'';
+    position:absolute;left:24px;right:24px;height:15px;
+    background:repeating-linear-gradient(90deg,
+      var(--cream) 0 14px, transparent 14px 30px);
+    pointer-events:none;
+  }
+  .archive::before{top:9px}
+  .archive::after{bottom:23px}
+  .archive-filmtag{
+    position:absolute;left:50%;bottom:7px;transform:translateX(-50%);
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:10px;letter-spacing:.34em;text-transform:uppercase;
+    color:#c8803c;opacity:.92;
+    pointer-events:none;
   }
   .archive-stage{
     position:relative;
@@ -577,8 +597,8 @@
   .archive-arrow svg{width:22px;height:22px;display:block}
   .archive-arrow:hover{opacity:1;background:rgba(246,241,232,.95)}
   .archive-arrow:active{transform:translateY(-50%) scale(.92)}
-  .archive-arrow.prev{left:18px}
-  .archive-arrow.next{right:18px}
+  .archive-arrow.prev{left:32px}
+  .archive-arrow.next{right:32px}
 
   .archive-counter{
     text-align:center;
@@ -780,10 +800,16 @@
     .footer-contact-item a{font-size:18px}
     .footer-divider{margin:40px auto 18px}
     .about{grid-template-columns:1fr;gap:40px}
+    .archive{padding:22px 12px 34px}
+    .archive::before,.archive::after{left:14px;right:14px;height:11px;
+      background:repeating-linear-gradient(90deg,var(--cream) 0 10px,transparent 10px 22px)}
+    .archive::before{top:7px}
+    .archive::after{bottom:17px}
+    .archive-filmtag{font-size:8px;letter-spacing:.28em;bottom:6px}
     .archive-stage{height:min(60vh, 500px)}
     .archive-arrow{width:40px;height:40px}
-    .archive-arrow.prev{left:8px}
-    .archive-arrow.next{right:8px}
+    .archive-arrow.prev{left:18px}
+    .archive-arrow.next{right:18px}
 
     .testimonials-grid{gap:24px}
     .testimonial{padding:24px 14px}
@@ -970,6 +996,7 @@
     <p class="section-sub">A curated collection of my previous work</p>
 
     <div class="archive" id="archive-carousel" aria-roledescription="image carousel" aria-label="Photography archive">
+      <div class="archive-filmtag" aria-hidden="true">Kodak Portra 400 · 22A</div>
       <div class="archive-stage">
         <!-- 10 photos in Esther's PDF order. Missing: position 7 baby's feet · position 8 child running -->
         <img class="archive-img active" src="images/work/01.jpg" alt="Mother and daughter"        loading="eager">
