@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Estrela Photography — Website coming soon</title>
+<meta name="description" content="Estrela Photography by Esther — new website coming soon. In the meantime, connect on Instagram @estrela.photography.">
+<meta name="theme-color" content="#3d4a35">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Temporary landing page — keep out of search results while it's live. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Open Graph (WhatsApp / Instagram / FB link previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://estrelaphotography.com/">
+<meta property="og:title" content="Estrela Photography — Website coming soon">
+<meta property="og:description" content="New website coming soon. In the meantime, connect on Instagram @estrela.photography.">
+<meta property="og:image" content="https://tdubbins.github.io/estrela-photography/images/hero/01.jpg">
+<meta property="og:locale" content="en_US">
+
+<!-- Bunny Fonts — same as the main site -->
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=allura:400|cormorant-garamond:300,300i,400|italiana:400|special-elite:400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#3e4a3a;
+    --ink-soft:#566249;
+    --cream:#f6f1e8;
+    --cream-warm:#ece4d5;
+    --moss-deep:#3d4a35;
+    --moss-accent:#2c3826;
+    --gold:#94774a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(28px,6vw,64px) 22px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .card{
+    width:100%;
+    max-width:600px;
+    text-align:center;
+    animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(14px)}
+    to{opacity:1;transform:none}
+  }
+  @media (prefers-reduced-motion:reduce){.card{animation:none}}
+
+  .logo{
+    width:min(300px,74vw);
+    margin:0 auto clamp(30px,5vw,46px);
+  }
+
+  h1{
+    font-family:'Italiana',serif;
+    font-weight:400;
+    font-size:clamp(1.9rem,6vw,2.9rem);
+    letter-spacing:.06em;
+    color:var(--moss-deep);
+    line-height:1.15;
+  }
+
+  /* thin gold flourish under the heading */
+  .rule{
+    width:54px;height:1px;
+    background:var(--gold);
+    opacity:.7;
+    margin:clamp(20px,4vw,28px) auto;
+  }
+
+  p.lead{
+    font-size:clamp(1.12rem,3.4vw,1.4rem);
+    color:var(--ink-soft);
+    max-width:34ch;
+    margin:0 auto;
+  }
+  p.lead + p.lead{margin-top:1.15em}
+
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    margin-top:clamp(30px,5vw,42px);
+    padding:15px 30px;
+    background:var(--moss-deep);
+    color:var(--cream);
+    border-radius:999px;
+    font-family:'Special Elite','Courier New',monospace;
+    font-size:.95rem;
+    letter-spacing:.04em;
+    transition:background .3s ease, transform .3s ease, box-shadow .3s ease;
+    box-shadow:0 8px 24px rgba(62,74,58,.16);
+  }
+  .cta:hover,.cta:focus-visible{
+    background:var(--moss-accent);
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(62,74,58,.22);
+    outline:none;
+  }
+  .cta svg{width:20px;height:20px;fill:currentColor;flex:none}
+
+  .seeyou{
+    margin-top:clamp(26px,4.5vw,34px);
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+
+  .signature{
+    margin-top:.5em;
+    font-family:'Allura',cursive;
+    font-size:clamp(2rem,7vw,2.6rem);
+    color:var(--gold);
+    line-height:1;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="logo.svg" alt="Estrela Photography" width="300" />
+
+    <h1>Website coming soon</h1>
+    <div class="rule" aria-hidden="true"></div>
+
+    <p class="lead">I&rsquo;m currently putting the finishing touches on my new website.</p>
+    <p class="lead">In the meantime, I&rsquo;d love to connect with you on Instagram.</p>
+
+    <a class="cta" href="https://instagram.com/estrela.photography" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.63 3.63 0 0 0-.88-1.35 3.63 3.63 0 0 0-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07Zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36Zm5.48-2.9a1.24 1.24 0 1 1 0 2.48 1.24 1.24 0 0 1 0-2.48Z"/></svg>
+      @estrela.photography
+    </a>
+
+    <p class="seeyou">See you there! &#10024;</p>
+    <p class="signature">Esther</p>
+  </main>
+</body>
+</html>
