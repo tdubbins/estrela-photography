@@ -51,24 +51,21 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://estrelaphotography.com/#business",
+  "@type": "WebSite",
+  "@id": "https://estrelaphotography.com/#website",
   "name": "Estrela Photography",
-  "description": "Photography by Esther, moments as they are. Based in Lagos, Portugal.",
+  "description": "The photography portfolio of Esther, moments as they are. Based in Lagos, Portugal.",
   "url": "https://estrelaphotography.com/",
   "image": "https://tdubbins.github.io/estrela-photography/images/hero/01.jpg",
-  "priceRange": "€€",
-  "areaServed": "Portugal",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lagos",
-    "addressRegion": "Algarve",
-    "addressCountry": "PT"
-  },
-  "founder": { "@type": "Person", "name": "Esther" },
-  "sameAs": [
-    "https://instagram.com/estrela.photography"
-  ]
+  "inLanguage": "en",
+  "creator": {
+    "@type": "Person",
+    "name": "Esther",
+    "jobTitle": "Photographer",
+    "sameAs": [
+      "https://instagram.com/estrela.photography"
+    ]
+  }
 }
 </script>
 
@@ -702,6 +699,7 @@
     letter-spacing:.04em;
     margin-bottom:6px;
   }
+  .footer-meta a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(246,241,232,.4)}
   .copy{
     font-size:12px;color:var(--cream);opacity:.5;
     font-style:italic;letter-spacing:.05em;
@@ -816,7 +814,7 @@
         <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
         <div class="nav-more-menu" id="navMoreMenu" role="menu">
           <a href="journal.html" role="menuitem">Journal</a>
-          <a href="voucher.html" role="menuitem">Voucher</a>
+          <!-- Voucher hidden for now — to re-add, uncomment this line: <a href="voucher.html" role="menuitem">Voucher</a> -->
           <a href="gallery.html" role="menuitem">Gallery</a>
         </div>
       </div>
@@ -840,7 +838,7 @@
       <li><a href="journal.html">Journal</a></li>
       <li><a href="#notes">Notes</a></li>
       <li><a href="#contact">Connect</a></li>
-      <li><a href="voucher.html">Voucher</a></li>
+      <!-- Voucher hidden for now — to re-add, uncomment this line: <li><a href="voucher.html">Voucher</a></li> -->
       <li><a href="gallery.html">Gallery</a></li>
     </ul>
   </div>
@@ -1097,6 +1095,7 @@
 
     <div class="footer-divider"></div>
     <div class="footer-meta">Based in Lagos, Portugal · replies within 48 hours</div>
+    <div class="footer-meta"><a href="impressum.html">Legal Notice</a> · <a href="privacy.html">Privacy Notice</a></div>
     <div class="copy">© 2026 <span class="swirl-e">E</span>strela Photography · crafted with love</div>
   </footer>
 

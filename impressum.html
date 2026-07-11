@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Journal · Estrela Photography</title>
-<meta name="description" content="Stories from behind the lens: places, shoots, and quiet moments. By Esther.">
+<title>Legal Notice · Estrela Photography</title>
+<meta name="description" content="Legal notice and provider information for Estrela Photography, in accordance with Portuguese law (Decreto-Lei n.º 7/2004).">
 <meta name="theme-color" content="#3d4a35">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -184,7 +184,7 @@
   /* ─── PAGE HEADER ────────────────────────── */
   .page-head{
     text-align:center;
-    padding:160px 24px 60px;
+    padding:160px 24px 40px;
   }
   .page-head h1{
     font-family:'Special Elite','Courier New',monospace;
@@ -203,80 +203,46 @@
     opacity:.4;margin:32px auto 0;
   }
 
-  /* ─── ENTRY ──────────────────────────────── */
-  .entry{
-    max-width:1100px;margin:0 auto;
-    padding:60px 24px 100px;
+  /* ─── LEGAL CONTENT ──────────────────────── */
+  .legal{
+    max-width:720px;margin:0 auto;
+    padding:40px 24px 100px;
   }
-  .entry-hero{
-    display:block;width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    background-color:var(--cream-warm);
-  }
-  .entry-hero img{
-    width:100%;height:100%;object-fit:cover;
-  }
-  .entry-head{
-    text-align:center;
-    margin:60px auto 36px;
-    max-width:780px;
-  }
-  .entry-title{
+  .legal section{margin-bottom:44px}
+  .legal h2{
     font-family:'Special Elite','Courier New',monospace;
-    font-size:32px;letter-spacing:.14em;
+    font-size:15px;letter-spacing:.2em;
     text-transform:uppercase;font-weight:400;
-    padding-left:.14em;line-height:1.2;
+    padding-left:.2em;
     color:var(--moss-deep);
+    margin-bottom:16px;
   }
-  .entry-date{
-    margin-top:12px;
-    font-family:'Special Elite','Courier New',monospace;
-    font-size:11px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--ink-soft);
-    padding-left:.22em;
-  }
-  .entry-body{
-    max-width:680px;margin:0 auto;
-    font-family:'Special Elite','Courier New',monospace;
-    font-size:15px;line-height:1.95;
-  }
-  .entry-body p{margin-bottom:22px}
-
-  .entry-photos{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin:48px auto;
-    max-width:1100px;
-  }
-  .entry-photos img{
-    width:100%;height:100%;
-    object-fit:cover;
-    aspect-ratio:4/5;
-    background-color:var(--cream-warm);
-  }
-
-  .entry-divider{
-    width:48px;height:1px;
-    background:var(--ink-soft);opacity:.3;
-    margin:80px auto 0;
-  }
-
-  /* ─── EMPTY STATE ────────────────────────── */
-  .empty-state{
-    max-width:520px;margin:60px auto 120px;
-    text-align:center;
-    padding:0 24px;
-  }
-  .empty-state .script{
-    font-family:'Parisienne',cursive;
-    font-size:32px;color:var(--ink-soft);
+  .legal p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;line-height:1.75;
     margin-bottom:14px;
   }
-  .empty-state p{
-    font-style:italic;color:var(--ink-soft);
-    font-size:18px;line-height:1.7;
+  .legal a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid rgba(var(--ink-rgb),.3);transition:opacity .25s}
+  .legal a:hover{opacity:.6}
+  .legal .field-label{
+    display:block;
+    font-family:'Italiana',serif;
+    letter-spacing:.28em;text-transform:uppercase;
+    font-size:11px;padding-left:.28em;
+    color:var(--ink-soft);opacity:.8;
+    margin-bottom:4px;
+  }
+  .legal .placeholder{
+    font-style:italic;color:#a3563f;
+  }
+  .legal .fine{
+    font-size:16px;font-style:italic;
+    color:var(--ink-soft);line-height:1.7;
+  }
+  .legal-divider{
+    width:48px;height:1px;
+    background:var(--ink-soft);opacity:.3;
+    margin:0 auto 44px;
   }
 
   /* ─── FOOTER ─────────────────────────────── */
@@ -348,15 +314,12 @@
     .nav-toggle{display:block}
     .logo-mark{height:48px}
 
-    .page-head{padding:120px 20px 36px}
+    .page-head{padding:120px 20px 28px}
     .page-head h1{font-size:30px;letter-spacing:.24em}
     .page-head .sub{font-size:24px}
 
-    .entry{padding:36px 22px 80px}
-    .entry-head{margin:40px auto 24px}
-    .entry-title{font-size:24px;letter-spacing:.22em}
-    .entry-body{font-size:17px}
-    .entry-photos{grid-template-columns:1fr;gap:6px;margin:32px auto}
+    .legal{padding:28px 22px 80px}
+    .legal p{font-size:18px}
 
     footer{padding:56px 22px max(28px, calc(env(safe-area-inset-bottom) + 16px))}
     .footer-logo-img{height:150px}
@@ -365,9 +328,6 @@
     .footer-contact-item a{font-size:18px}
     .footer-divider{margin:40px auto 18px}
   }
-
-  /* Page background tone — slightly different from index, lets the journal feel like its own room */
-  body{background:var(--cream)}
 </style>
 </head>
 <body>
@@ -389,7 +349,7 @@
       <div class="nav-more">
         <button type="button" class="nav-more-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="navMoreMenu">More<span class="dot" aria-hidden="true">•</span></button>
         <div class="nav-more-menu" id="navMoreMenu" role="menu">
-          <a href="journal.html" role="menuitem" aria-current="page">Journal</a>
+          <a href="journal.html" role="menuitem">Journal</a>
           <!-- Voucher hidden for now — to re-add, uncomment this line: <a href="voucher.html" role="menuitem">Voucher</a> -->
           <a href="gallery.html" role="menuitem">Gallery</a>
         </div>
@@ -418,16 +378,99 @@
 
   <!-- PAGE HEADER ───────────────────────────── -->
   <header class="page-head">
-    <h1>Journal</h1>
-    <div class="sub">stories from the lens</div>
+    <h1>Legal Notice</h1>
+    <div class="sub">the necessary details</div>
     <div class="divider"></div>
   </header>
 
-  <!-- EMPTY STATE ───────────────────────────── -->
-  <div class="empty-state">
-    <div class="script">more entries coming soon</div>
-    <p>The stories behind the photoshoots and the moments in between.</p>
-  </div>
+  <!-- LEGAL CONTENT ─────────────────────────── -->
+  <main class="legal">
+
+    <div class="legal-divider"></div>
+
+    <section>
+      <h2>Site Owner</h2>
+      <p>
+        This website is a personal photography portfolio, operated by a private
+        individual. It is not a registered company.
+      </p>
+      <p>
+        <span class="field-label">Name</span>
+        Esther Mathilde Bergstra, working under the name <strong>Estrela Photography</strong>
+      </p>
+      <p>
+        <span class="field-label">Address</span>
+        Graaf Wichmanlaan 13A-a4<br>
+        1405 GW Bussum<br>
+        Netherlands
+      </p>
+      <p class="fine">
+        Photography is offered on an occasional basis. Any paid session is invoiced
+        individually as an isolated act (ato isolado) under Portuguese tax rules;
+        Estrela Photography is not a VAT-registered business.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        <span class="field-label">Email</span>
+        <a href="mailto:estrelaphotography@outlook.com">estrelaphotography@outlook.com</a>
+      </p>
+      <p>
+        <span class="field-label">Phone / WhatsApp</span>
+        <a href="https://wa.me/31631192116" target="_blank" rel="noopener">+31 6 31192116</a>
+      </p>
+      <p>
+        <span class="field-label">Instagram</span>
+        <a href="https://instagram.com/estrela.photography" target="_blank" rel="noopener">@estrela.photography</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Responsible for Content</h2>
+      <p>
+        Responsibility for the content of this website lies with
+        Esther Mathilde Bergstra, at the address given above.
+      </p>
+    </section>
+
+    <section>
+      <h2>Copyright</h2>
+      <p>
+        All photographs, text, and design on this website are the intellectual property
+        of Esther / Estrela Photography unless otherwise stated, and are protected under the
+        Portuguese Code of Copyright and Related Rights
+        (Código do Direito de Autor e dos Direitos Conexos). Reproduction, distribution,
+        or use of any material without prior written permission is not permitted.
+      </p>
+    </section>
+
+    <section>
+      <h2>Online Dispute Resolution</h2>
+      <p class="fine">
+        The European Commission provides a platform for online dispute resolution (ODR),
+        available at
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+        We are neither obliged nor willing to participate in dispute resolution
+        proceedings before a consumer arbitration board.
+      </p>
+    </section>
+
+    <section>
+      <h2>Liability for Content &amp; Links</h2>
+      <p class="fine">
+        The contents of this website have been prepared with the greatest possible care.
+        However, we accept no liability for the accuracy, completeness, or timeliness of
+        the content provided. This website may contain links to external websites operated
+        by third parties, over whose content we have no control and for which we accept no
+        responsibility.
+      </p>
+    </section>
+
+    <p class="fine">This legal notice is provided in accordance with Decreto-Lei n.º 7/2004 (Portuguese Electronic Commerce Law) and applicable EU regulations. Last updated: July 2026.</p>
+
+  </main>
 
   <!-- FOOTER ────────────────────────────────── -->
   <footer id="contact">
@@ -483,13 +526,6 @@
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
-    });
-
-    // Nav stays visible throughout the page
-    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
-
-    window.addEventListener('resize', () => {
-      if (!isMobile() && navToggle.getAttribute('aria-expanded') === 'true') closeMenu();
     });
 
     // ─── DESKTOP NAV "MORE" DROPDOWN ───────────────────
